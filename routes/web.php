@@ -38,3 +38,6 @@ Route::get('/userinfo',function(){
 	return view('cd-admin/userinfo/userinfo');
 });
 
+Route::get('/adduserinfo',function(){
+	return view('cd-admin/userinfo/adduserinfo');
+});

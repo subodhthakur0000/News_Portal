@@ -23,7 +23,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">User Info</h3>
+					<a href="{{url('/adduserinfo')}}"><button type="button" class="btn bg-gradient-primary">Add User Info</button></a>
 				</div>
 				<!-- /.card-header -->
 				<div class="card-body">
