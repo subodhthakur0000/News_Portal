@@ -667,6 +667,20 @@
               <p class="text">User Info</p>
             </a>
           </li>
+          <li class="nav-header">SEO SECTION</li>
+          <li class="nav-item">
+            <a href="{{url('/seo')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Seo</p>
+            </a>
+          </li>
+          <li class="nav-header">ADMIN</li>
+          <li class="nav-item">
+            <a href="{{url('/admin')}}" class="nav-link">
+              <i class="nav-icon far fa-circle text-danger"></i>
+              <p class="text">Admin</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

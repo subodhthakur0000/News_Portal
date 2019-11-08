@@ -41,3 +41,23 @@ Route::get('/userinfo',function(){
 Route::get('/adduserinfo',function(){
 	return view('cd-admin/userinfo/adduserinfo');
 });
+
+Route::get('/seo',function(){
+	return view('cd-admin/seo/viewseo');
+});
+
+Route::get('/addseo',function(){
+	return view('cd-admin/seo/addseo');
+});
+
+Route::get('/editseo',function(){
+	return view('cd-admin/seo/editseo');
+});
+
+Route::get('/admin',function(){
+	return view('cd-admin/admin/viewadmin');
+});
+
+Route::get('/addadmin',function(){
+	return view('cd-admin/admin/addadmin');
+});
