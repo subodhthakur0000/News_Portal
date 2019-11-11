@@ -48,11 +48,9 @@
                   </div>
                   <input type="number" class="form-control" placeholder="Phone">
                 </div>
-                <button type="submit" class="btn btn-primary"> Add Info</button>
-                 <a href="{{url('/userinfo')}}"><button type="button" class="btn btn-default float-right" data-dismiss="modal">Back</button></a>
-                
-                </form>
-
+                <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Info</button> 
+            </form>
+            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>
               </div>
               <!-- /.card-body -->
             </div>

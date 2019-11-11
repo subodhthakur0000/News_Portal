@@ -59,10 +59,10 @@
                 <div class="form-group">
                   <textarea class="textarea form-control" placeholder="Seo Description">Seo Description</textarea>
                 </div>               
-                <button type="submit" class="btn btn-primary"> Add Seo</button>
-                 <a href="{{url('/seo')}}"><button type="button" class="btn btn-default float-right" data-dismiss="modal">Back</button></a>
+                <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Seo</button> 
+            </form>
+            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>
                 
-                </form>
 
               </div>
               <!-- /.card-body -->

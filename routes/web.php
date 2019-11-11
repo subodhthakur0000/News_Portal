@@ -19,6 +19,58 @@ Route::get('/dashboard',function(){
 	return view('cd-admin/admin-master');
 });
 
+Route::get('/add_news',function(){
+	return view('cd-admin.news.add_news');
+});
+
+Route::get('/view_news',function(){
+	return view('cd-admin.news.view_news');
+});
+
+Route::get('/show_news',function(){
+	return view('cd-admin.news.show_news');
+});
+
+route::get('/edit_news',function(){
+	return view('cd-admin.news.edit_news');
+});
+
+
+
+route::get('/add_video',function(){
+	return view('cd-admin.media.add_video');
+});
+
+route::get('/add_audio',function(){
+	return view('cd-admin.media.add_audio');
+});
+
+route::get('/add_files',function(){
+	return view('cd-admin.media.add_files');
+});
+
+route::get('/view_audio',function(){
+	return view('cd-admin.media.view_audio');
+});
+
+route::get('/view_files',function(){
+	return view('cd-admin.media.view_files');
+});
+
+route::get('/view_videos',function(){
+	return view('cd-admin.media.view_videos');
+});
+
+route::get('/view_advertisement',function(){
+	return view('cd-admin.advertisement.view_advertisement');
+});
+route::get('/add_advertisement',function(){
+	return view('cd-admin.advertisement.add_advertisement');
+});
+route::get('/edit_advertisement',function(){
+	return view('cd-admin.advertisement.edit_advertisement');
+});
+
 Route::get('/comment',function(){
 	return view('cd-admin/comment/viewcomment');
 });
@@ -61,3 +113,5 @@ Route::get('/admin',function(){
 Route::get('/addadmin',function(){
 	return view('cd-admin/admin/addadmin');
 });
+
+

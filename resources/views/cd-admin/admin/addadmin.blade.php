@@ -78,11 +78,13 @@
             <input type="radio" name="role" value="Admin"> Admin
           </div>
 
-                <div>
-                  <button type="submit" class="btn btn-info" name="insert">Add Admin</button>
-                </div>
-              </form>
-              <a href="{{URL()->previous()}}"><button type="button" class="btn btn-default pull-right" data-dismiss="modal">Back</button></a>
+            <button type="submit" class="btn btn-info" name="insert">Add Admin</button>
+              
+            </form>
+            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>
+
+              
+              
         </div>
         <!-- /.card-body -->
       </div>
