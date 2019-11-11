@@ -28,31 +28,44 @@
             @csrf
             <form role="form">
               <div class="box-body">
+                <div class="form-group">
+                  <label>Name</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                   </div>
                   <input type="text" class="form-control" placeholder="Name">
                 </div>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
                   <input type="email" class="form-control" placeholder="Email">
                 </div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                   </div>
                   <input type="text" class="form-control" placeholder="Password">
                 </div>
+                </div>
+                <div class="form-group">
+                  <label>Confirm Password</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                   </div>
                   <input type="text" class="form-control" placeholder="Confirm Password">
                 </div>
+                </div>
                 <div class="form-group">
+                  <label>Admin Image</label>
                     <div class="input-group">
                       <div class="input-group-append">
                         <span class="input-group-text" id=""><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i></span>
@@ -63,11 +76,14 @@
                       </div>
                 </div>
               </div>
+              <div class="form-group">
+                <label>Alternative Image Description</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                   </div>
                   <input type="text" class="form-control" placeholder="Image Description">
+                </div>
                 </div>
                
                

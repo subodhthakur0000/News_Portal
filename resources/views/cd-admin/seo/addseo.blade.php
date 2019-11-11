@@ -29,7 +29,8 @@
               <div class="card-body">
             <form action="" method="post">
               	@csrf
-              
+                 <div class="form-group">
+                  <label>Page Title</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-home"></i></span>
@@ -44,21 +45,31 @@
                     <option>Page title 6</option>
                   </select>
                 </div>
+                </div>
+                <div class="form-group">
+                  <label>Seo Title</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-file"></i></span>
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
                   </div>
                   <input type="text" class="form-control" placeholder="Seo Title">
                 </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-file"></i></span>
-                  </div>
-                  <textarea class="form-control">Seo keyword</textarea>
                 </div>
                 <div class="form-group">
-                  <textarea class="textarea form-control" placeholder="Seo Description">Seo Description</textarea>
-                </div>               
+                  <label>Seo Keyword</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+                  </div>
+                  <textarea class="form-control" placeholder="Seo keyword"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Seo Description</label>
+                <div class="form-group">
+                  <textarea class="textarea form-control" placeholder="Seo Description"></textarea>
+                </div> 
+                </div>              
                 <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Seo</button> 
             </form>
             <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>

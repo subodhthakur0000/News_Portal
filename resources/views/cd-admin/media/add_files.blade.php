@@ -46,7 +46,7 @@
 		                  <label >Alternative File Description</label>
 		                  <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter Alternative File Description" name="Image_title">
                           </div>
@@ -55,7 +55,7 @@
 		                  <label >File Title</label>
 		                  <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter File Title" name="File_title">
                           </div>
@@ -69,7 +69,7 @@
                   <label >File Summary</label>
                   <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
                             <textarea class="form-control" rows="6" placeholder="Enter File Summary " name="File_summary"></textarea>
                           </div>
@@ -78,7 +78,7 @@
                   <label >Seo Title</label>
                   <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-search"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter Seo Title">
                           </div>

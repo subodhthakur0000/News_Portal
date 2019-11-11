@@ -35,7 +35,7 @@
                   <label >Audio Url</label>
                   <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-link"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter Audio Url" name="audio_url">
                           </div>
@@ -44,7 +44,7 @@
 		                  <label >Audio Title</label>
 		                  <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter Audio Title" name="audio_title">
                           </div>
@@ -58,7 +58,7 @@
                   <label >Audio Summary</label>
                   <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
                             <textarea class="form-control" rows="6" placeholder="Enter Audio Summary " name="audio_summary"></textarea>
                           </div>
@@ -67,7 +67,7 @@
                   <label >Seo Title</label>
                   <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-search"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter Seo Title">
                           </div>
@@ -76,7 +76,7 @@
                         <label >Seo Keyword</label>
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
                             <textarea class="form-control" placeholder="Enter Seo Keyword"></textarea>
                           </div>

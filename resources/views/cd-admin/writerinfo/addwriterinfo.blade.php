@@ -29,24 +29,41 @@
               <div class="card-body">
             <form action="" method="post">
               	@csrf
-              
+                <div class="form-group">
+                  <label>User Name</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
                   <input type="text" class="form-control" placeholder="Username">
                 </div>
+                </div>
+                <div class="form-group">
+                  <label>Name</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Name">
+                </div>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
                   <input type="email" class="form-control" placeholder="Email">
                 </div>
+                </div>
+                <div class="form-group">
+                  <label>Phone</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                   </div>
                   <input type="number" class="form-control" placeholder="Phone">
+                </div>
                 </div>
                 <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Info</button> 
             </form>

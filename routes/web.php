@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard',function(){
-	return view('cd-admin/admin-master');
+	return view('cd-admin.dashboard.dashboard');
 });
 
 Route::get('/add_news',function(){

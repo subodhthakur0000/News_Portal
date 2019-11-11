@@ -35,7 +35,7 @@
           <label >Advertisement Title</label>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-file"></i></span>
+              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
             </div>
             <input type="text" class="form-control" placeholder="Enter Advertisement Title" name="newstitle">
           </div>
@@ -44,7 +44,7 @@
           <label >Advertisement URL</label>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-file"></i></span>
+              <span class="input-group-text"><i class="fas fa-link"></i></span>
             </div>
             <input type="text" class="form-control" placeholder="Enter Advertisement URL" name="newstitle">
           </div>
@@ -69,7 +69,7 @@
                       <label >Alternative Advertisement Description</label>
                       <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-file"></i></span>
+                              <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
                             <input type="text" class="form-control" placeholder="Enter Alternative Advertisement Description" name="Image_title">
                           </div>
@@ -79,7 +79,7 @@
                   <label >Section</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-home"></i></span>
+                    <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                   </div>
                   <select class="form-control select2">
                     <option selected="selected">Select Section</option>

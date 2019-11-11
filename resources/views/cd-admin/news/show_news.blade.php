@@ -48,10 +48,11 @@
                   <h5>SEO Keywords</h5>
                   <h5>SEO Description</h5>
                 </div>
+                <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default bg-green " >Back</button></a>
 
               </div>
               <!-- /.card-body -->
-              <button type="submit" class="btn btn-default bg-green " >Back</button>
+              
             </div>
             <!-- /.card -->
           </div>
