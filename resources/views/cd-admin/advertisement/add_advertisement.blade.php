@@ -28,7 +28,7 @@
         <h3 class="card-title">Add Advertisement</h3>
       </div>
       <div class="card-body">
-        <form action="" method="post">
+        <form action="{{url('/storeadvertisement')}}" method="post">
          @csrf
 
          <div class="form-group">
@@ -37,7 +37,8 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Enter Advertisement Title" name="newstitle">
+            <input type="text" class="form-control" name="advertisementtitle" value="{{old('advertisementtitle')}}" placeholder="Enter Advertisement Title" name="newstitle">
+            <div class="text text-danger">{{ $errors->first('advertisementtitle') }}</div>
           </div>
         </div>
         <div class="form-group">
@@ -46,13 +47,15 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-link"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="Enter Advertisement URL" name="newstitle">
+            <input type="text" class="form-control" name="advertisementurl" value="{{old('advertisementurl')}}" placeholder="Enter Advertisement URL" name="newstitle">
+            <div class="text text-danger">{{ $errors->first('advertisementurl') }}</div>
           </div>
         </div>
         <div class="form-group">
           <label >Advertisement Description</label>
-          <textarea class="textarea" placeholder="Place some text here"
-          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+          <textarea class="textarea" name="advertisementdescription" placeholder="Place some text here"
+          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{old('advertisementdescription')}}</textarea>
+          <div class="text text-danger">{{ $errors->first('advertismentdescription') }}</div>
         </div>
         <div class="form-group">
                   <label >Upload Advertisement </label>
@@ -61,7 +64,8 @@
                         <span class="input-group-text" id=""><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i></span>
                       </div>
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <input type="file" class="custom-file-input" name="uploadadvertisement" id="exampleInputFile" value="{{old('uploadadvertisement')}}">
+                        <div class="text text-danger">{{ $errors->first('uploadadvertisment') }}</div>
                         <label class="custom-file-label" for="exampleInputFile">Upload Advertisment</label>
                       </div>
                   </div><br>
@@ -71,7 +75,8 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Alternative Advertisement Description" name="Image_title">
+                            <input type="text" class="form-control" name="alternativeadvertisementdescription" value="{{old('alternativeadvertisementdescription')}}" placeholder="Enter Alternative Advertisement Description" name="Image_title">
+                            <div class="text text-danger">{{ $errors->first('alternativeadvertisementdescription') }}</div>
                           </div>
                         </div>
 
@@ -81,14 +86,15 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                   </div>
-                  <select class="form-control select2">
+                  <select class="form-control select2" name="section">
                     <option selected="selected">Select Section</option>
-                    <option>Header</option>
-                    <option>Body</option>
-                    <option>Left Side</option>
-                    <option>Right Side</option>
-                    <option>Footer</option>
+                    <option value="header">Header</option>
+                    <option value="body">Body</option>
+                    <option value="leftside">Left Side</option>
+                    <option value="rightside">Right Side</option>
+                    <option value="footer">Footer</option>
                   </select>
+                  <div class="text text-danger">{{ $errors->first('section') }}</div>
                 </div>
                 </div>
 

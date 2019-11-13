@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="{{asset('node_modules/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<!-- sweetalert -->
+<link rel="stylesheet" href="{{asset('/node_modules/sweetalert2/dist/sweetalert2.min.css')}}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -105,6 +107,47 @@
       "autoWidth": false,
     });
   });
+</script>
+<script src="{{asset('node_modules/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script>
+       @if(Session::has('success'))
+           const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500,
+              timerProgressBar: true,
+              onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+          })
+
+          Toast.fire({
+            icon: 'success',
+            title: '{{ Session::get('success') }}'
+          })
+       @elseif(Session::has('error'))
+         const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500,
+              timerProgressBar: true,
+              onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+          })
+
+          Toast.fire({
+            icon: 'error',
+            title: '{{ Session::get('error') }}'
+          })
+      @endif
+
+
 </script>
 </body>
 </html>

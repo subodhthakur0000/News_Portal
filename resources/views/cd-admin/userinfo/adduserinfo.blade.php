@@ -27,7 +27,7 @@
                 <h3 class="card-title">Add User Info</h3>
               </div>
               <div class="card-body">
-            <form action="" method="post">
+            <form action="{{url('/storeuserinfo')}}" method="post">
               	@csrf
                 <div class="form-group">
                   <label>Name</label>
@@ -35,7 +35,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Name">
+                  <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Name">
+                  <div class="text text-danger">{{ $errors->first('name') }}</div>
                 </div>
                 </div>
                 <div class="form-group">
@@ -44,7 +45,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
-                  <input type="email" class="form-control" placeholder="Email">
+                  <input type="email" class="form-control" name="email" value="{{old('email')}}"placeholder="Email">
+                  <div class="text text-danger">{{ $errors->first('email') }}</div>
                 </div>
                 </div>
                 <div class="form-group">
@@ -53,7 +55,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
                   </div>
-                  <input type="number" class="form-control" placeholder="Phone">
+                  <input type="number" class="form-control" name="phone" value="{{old('phone')}}" placeholder="Phone">
+                  <div class="text text-danger">{{ $errors->first('phone') }}</div>
                 </div>
                 </div>
                 <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Info</button> 

@@ -79,32 +79,25 @@ Route::get('/reply',function(){
 	return view('cd-admin/reply/viewreply');
 });
 
-Route::get('/writerinfo',function(){
-	return view('cd-admin/writerinfo/writerinfo');
-});
-Route::get('/addwriterinfo',function(){
-	return view('cd-admin/writerinfo/addwriterinfo');
-});
+Route::get('/writerinfo','WriterinfoController@index');
+Route::get('/addwriterinfo','WriterinfoController@insertform');
+Route::post('/storewriterinfo','WriterinfoController@store');
+Route::DELETE('/deletewriterinfo/{id}','WriterinfoController@delete');
 
-Route::get('/userinfo',function(){
-	return view('cd-admin/userinfo/userinfo');
-});
+Route::get('/userinfo','UserinfoController@index');
+Route::get('/adduserinfo','UserinfoController@insertform');
+Route::post('/storeuserinfo','UserinfoController@store');
+Route::DELETE('/deleteuserinfo/{id}','UserinfoController@delete');
 
-Route::get('/adduserinfo',function(){
-	return view('cd-admin/userinfo/adduserinfo');
-});
 
-Route::get('/seo',function(){
-	return view('cd-admin/seo/viewseo');
-});
+Route::get('/seo','SeoController@index');
 
-Route::get('/addseo',function(){
-	return view('cd-admin/seo/addseo');
-});
+Route::get('/addseo','SeoController@insertform');
+Route::post('/storeseo','SeoController@store');
 
-Route::get('/editseo',function(){
-	return view('cd-admin/seo/editseo');
-});
+Route::get('/editseo/{id}','SeoController@edit');
+Route::post('/updateseo/{id}','SeoController@update');
+Route::post('/deleteseo/{id}','SeoController@delete');
 
 Route::get('/admin',function(){
 	return view('cd-admin/admin/viewadmin');

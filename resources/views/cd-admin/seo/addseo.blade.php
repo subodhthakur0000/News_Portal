@@ -27,7 +27,7 @@
                 <h3 class="card-title">Add Seo</h3>
               </div>
               <div class="card-body">
-            <form action="" method="post">
+            <form action="{{url('/storeseo')}}" method="post">
               	@csrf
                  <div class="form-group">
                   <label>Page Title</label>
@@ -35,15 +35,14 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-home"></i></span>
                   </div>
-                  <select class="form-control select2">
-                    <option selected="selected">Page Title</option>
-                    <option>Page title 1</option>
-                    <option>Page title 2</option>
-                    <option>Page title 3</option>
-                    <option>Page title 4</option>
-                    <option>Page title 5</option>
-                    <option>Page title 6</option>
+                  <select class="form-control select2" name="pagetitle" value="{{old('pagetitle')}}">
+                    <option selected="selected">Choose Page Title</option>
+                    <option value="home">Home</option>
+                    <option value="sports">Sports</option>
+                    <option value="news">News</option>
+                    <option value="business">Business</option>
                   </select>
+                  <div class="text text-danger">{{ $errors->first('pagetitle') }}</div>
                 </div>
                 </div>
                 <div class="form-group">
@@ -52,7 +51,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Seo Title">
+                  <input type="text" class="form-control" name="seotitle" value="{{old('seotitle')}}" placeholder="Seo Title">
+                  <div class="text text-danger">{{ $errors->first('seotitle') }}</div>
                 </div>
                 </div>
                 <div class="form-group">
@@ -61,13 +61,15 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                   </div>
-                  <textarea class="form-control" placeholder="Seo keyword"></textarea>
+                  <textarea class="form-control" name="seokeyword" value="{{old('seokeyword')}}" placeholder="Seo keyword"></textarea>
+                  <div class="text text-danger">{{ $errors->first('seokeyword') }}</div>
                 </div>
               </div>
               <div class="form-group">
                 <label>Seo Description</label>
                 <div class="form-group">
-                  <textarea class="textarea form-control" placeholder="Seo Description"></textarea>
+                  <textarea class="textarea form-control" name="seodescription" placeholder="Seo Description">{{old('seodescription')}}</textarea>
+                  <div class="text text-danger">{{ $errors->first('seodescription') }}</div>
                 </div> 
                 </div>              
                 <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Seo</button> 
