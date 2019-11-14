@@ -28,7 +28,7 @@
         <h3 class="card-title">Add Advertisement</h3>
       </div>
       <div class="card-body">
-        <form action="{{url('/storeadvertisement')}}" method="post">
+        <form action="{{url('/store_advertisement')}}" method="post" enctype="multipart/form-data">
          @csrf
 
          <div class="form-group">
@@ -55,20 +55,17 @@
           <label >Advertisement Description</label>
           <textarea class="textarea" name="advertisementdescription" placeholder="Place some text here"
           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{old('advertisementdescription')}}</textarea>
-          <div class="text text-danger">{{ $errors->first('advertismentdescription') }}</div>
-        </div>
-        <div class="form-group">
-                  <label >Upload Advertisement </label>
+          <div class="text text-danger">{{ $errors->first('advertisementdescription') }}</div>  
+                  <div class="form-group">
+                    <label >Upload Advertisement </label>
                     <div class="input-group">
                       <div class="input-group-append">
                         <span class="input-group-text" id=""><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i></span>
                       </div>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="uploadadvertisement" id="exampleInputFile" value="{{old('uploadadvertisement')}}">
-                        <div class="text text-danger">{{ $errors->first('uploadadvertisment') }}</div>
-                        <label class="custom-file-label" for="exampleInputFile">Upload Advertisment</label>
-                      </div>
-                  </div><br>
+                    <input type="file" name="image" value="{{old('image')}}">
+                    <div class="text text-danger">{{ $errors->first('image') }}</div>
+                  </div>
+                  </div>
                   <div class="form-group">
                       <label >Alternative Advertisement Description</label>
                       <div class="input-group mb-3">
@@ -100,7 +97,7 @@
 
         <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Advertisement</button> 
       </form>
-      <a href="{{url('/view_advertisement')}"><button type="button" class="btn btn-default" style="float: right">Back</button></a>
+      <a href="{{url()->previous()}"><button type="button" class="btn btn-default" style="float: right">Back</button></a>
 
 
     </div>

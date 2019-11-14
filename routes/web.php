@@ -19,21 +19,14 @@ Route::get('/dashboard',function(){
 	return view('cd-admin.dashboard.dashboard');
 });
 
-Route::get('/add_news',function(){
-	return view('cd-admin.news.add_news');
-});
 
-Route::get('/view_news',function(){
-	return view('cd-admin.news.view_news');
-});
-
-Route::get('/show_news',function(){
-	return view('cd-admin.news.show_news');
-});
-
-route::get('/edit_news',function(){
-	return view('cd-admin.news.edit_news');
-});
+route::get('/view_news','NewsController@index');
+route::get('/add_news','NewsController@insertform');
+route::post('/store_news','NewsController@store');
+route::get('/edit_news/{id}','NewsController@edit');
+route::get('/show_news/{id}','NewsController@show');
+route::post('/update_news/{id}','NewsController@update');
+route::DELETE('/delete_news/{id}','NewsController@delete');
 
 
 
@@ -61,15 +54,12 @@ route::get('/view_videos',function(){
 	return view('cd-admin.media.view_videos');
 });
 
-route::get('/view_advertisement',function(){
-	return view('cd-admin.advertisement.view_advertisement');
-});
-route::get('/add_advertisement',function(){
-	return view('cd-admin.advertisement.add_advertisement');
-});
-route::get('/edit_advertisement',function(){
-	return view('cd-admin.advertisement.edit_advertisement');
-});
+route::get('/view_advertisement','AdvertisementController@index');
+route::get('/add_advertisement','AdvertisementController@insertform');
+route::post('/store_advertisement','AdvertisementController@store');
+route::get('/edit_advertisement/{id}','AdvertisementController@edit');
+route::post('/update_advertisement/{id}','AdvertisementController@update');
+route::DELETE('/delete_advertisement/{id}','AdvertisementController@delete');
 
 Route::get('/comment',function(){
 	return view('cd-admin/comment/viewcomment');

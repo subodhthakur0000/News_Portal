@@ -49,5 +49,47 @@ trait Validation {
 	       return ($data);
 	  }
 
+	  public function advertisementvalidation()
+	  {
+	    $data = Request()->validate([
+	            'advertisementtitle'     =>  'required',
+	            'advertisementurl'			=> 'required',
+	            'advertisementdescription'    => 'required',
+	            'image'  => 'required',
+	            'alternativeadvertisementdescription' => 'required',
+	            'section' => 'required',
+	        ]);
+	       return ($data);
+	  }
+
+	  public function advertisementupdatevalidation()
+	  {
+	    $data = Request()->validate([
+	            'advertisementtitle'     =>  'required',
+	            'advertisementurl'			=> 'required',
+	            'advertisementdescription'    => 'required',
+	            'image'  => 'required',
+	            'alternativeadvertisementdescription' => 'required',
+	            'section' => 'required',
+	        ]);
+	       return ($data);
+	  }
+
+	  public function newsvalidation()
+	  {
+	    $data = Request()->validate([
+	            'newstitle'     =>  'required',
+	            'writerusername'			=> 'required',
+	            'news'    => 'required',
+	            'newssummary'  => 'required',
+	            'seotitle' => 'required',
+	            'seokeyword' => 'required',
+	            'seodescription' => 'required',
+	            'category' =>'',
+	            
+	        ]);
+	       return ($data);
+	  }
+
 	 
 }
