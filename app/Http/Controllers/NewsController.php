@@ -34,6 +34,13 @@ class NewsController extends Controller
    return redirect('/view_news')->with('success','Inserted Successfully');
  }
 
+ public function show($id)
+  {
+    $news = News::where('id', $id)->get()->first();
+    $category = json_decode($news->category);
+    return view('cd-admin.news.show_news',compact('news','category'));
+  }
+
  public function edit($id)
  {
   $news = News::findorfail($id);
@@ -45,6 +52,7 @@ public function update($id)
  $a=[];
  $test=$this->newsupdatevalidation();
  $a['updated_at'] = Carbon::now('Asia/Kathmandu');
+ $a['category'] = json_encode($test['category']);
  $merge =  array_merge($test,$a);
  DB::table('news')->where('id',$id)->update($merge);
  return redirect('/view_news')->with('success','Updated Successfully');

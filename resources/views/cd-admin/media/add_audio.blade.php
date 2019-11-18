@@ -28,7 +28,7 @@
                 <h3 class="card-title">Add Audio</h3>
               </div>
               <div class="card-body">
-            <form action="" method="post">
+            <form action="{{url('store_audio')}}" method="post">
               	@csrf
               
               <div class="form-group">
@@ -37,7 +37,8 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-link"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Audio Url" name="audio_url">
+                            <input type="text" class="form-control" placeholder="Enter Audio Url" name="audiourl">
+                            <div class="text text-danger">{{ $errors->first('audiourl') }}</div>
                           </div>
                         </div>
                         <div class="form-group">
@@ -46,13 +47,15 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Audio Title" name="audio_title">
+                            <input type="text" class="form-control" placeholder="Enter Audio Title" name="audiotitle">
+                            <div class="text text-danger">{{ $errors->first('audiotitle') }}</div>
                           </div>
                         </div>
                         <div class="form-group">
                   			<label >Audio Descripton </label>
-                           <textarea class="textarea" placeholder=""
+                           <textarea class="textarea" name="audiodescription" placeholder=""
                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                  <div class="text text-danger">{{ $errors->first('audiodescription') }}</div>
                         </div>
                         <div class="form-group">
                   <label >Audio Summary</label>
@@ -60,7 +63,8 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
-                            <textarea class="form-control" rows="6" placeholder="Enter Audio Summary " name="audio_summary"></textarea>
+                            <textarea class="form-control" rows="6" placeholder="Enter Audio Summary " name="audiosummary"></textarea>
+                            <div class="text text-danger">{{ $errors->first('audiosummary') }}</div>
                           </div>
                         </div>
                         <div class="form-group">
@@ -69,7 +73,8 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-search"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Seo Title">
+                            <input type="text" class="form-control" placeholder="Enter Seo Title" name="seotitle">
+                            <div class="text text-danger" >{{ $errors->first('seotitle') }}</div>
                           </div>
                       </div>
                       <div class="form-group">
@@ -78,12 +83,14 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
-                            <textarea class="form-control" placeholder="Enter Seo Keyword"></textarea>
+                            <textarea class="form-control" placeholder="Enter Seo Keyword" name="seokeyword"></textarea>
+                            <div class="text text-danger">{{ $errors->first('seokeyword') }}</div>
                           </div>
                       </div>
                       <div class="form-group">
                         <label >Seo Description</label>
-                            <textarea class="textarea form-control" placeholder="Enter Seo Description"></textarea>
+                            <textarea class="textarea form-control" placeholder="Enter Seo Description" name="seodescription"></textarea>
+                            <div class="text text-danger">{{ $errors->first('seodescription') }}</div>
                       </div>              
                 <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Audio</button> 
             </form>

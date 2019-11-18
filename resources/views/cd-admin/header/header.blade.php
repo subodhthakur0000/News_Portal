@@ -127,13 +127,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('view_files')}}" class="nav-link">
+                <a href="{{url('view_file')}}" class="nav-link">
                   <i class="fas fa-file nav-icon"></i>
                   <p>File</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('view_videos')}}" class="nav-link">
+                <a href="{{url('view_video')}}" class="nav-link">
                   <i class="fas fa-video nav-icon"></i>
                   <p>Video</p>
                 </a>

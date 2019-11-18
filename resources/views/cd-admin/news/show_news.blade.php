@@ -23,30 +23,37 @@
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Categories</h3>
+              <h3 class="card-title">Categories: </h3>
+              @foreach($category as $c)
+              <button class="btn bg-olive btn-sm" disabled>{{$c}}</button>
+              @endforeach
             </div>
             <div class="card-body">
              <div class="col-sm-9">
-              <h1 class="m-0 text-dark">अटेर गरे डोजर चलाउँछौं : प्रवक्ता चौधरी</h1>
+              <h2 class="m-0 text-dark">News Title</h2>
+              <p>{{$news->newstitle}}</p>
             </div>
             <div style="text-align: right;">
               <h4>2076/07/19</h4>           
-              <h4 class="m-0 text-dark">Writers Name</h1>
-
+              <h4 class="m-0 text-dark">Writer's User Name</h1>
+                <p>{{$news->writerusername}}</p>
                 <h4 class="m-0 text-dark">Views</h1>
-                </div>
+            </div>
                 <div>
                   News Description
                 </div>
                 <div class="col-sm-12">
-                  <h5 >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
+                  <h5 >{!!$news->news!!}</h5>
 
                 </div>
                 
                 <div>
                   <h5>SEO title</h5>
+                  <p>{{$news->seotitle}}</p>
                   <h5>SEO Keywords</h5>
+                  <p>{{$news->seokeyword}}</p>
                   <h5>SEO Description</h5>
+                  <p>{!!$news->seodescription!!}</p>
                 </div>
                 <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default bg-green " >Back</button></a>
 

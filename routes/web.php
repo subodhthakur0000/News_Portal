@@ -29,30 +29,21 @@ route::post('/update_news/{id}','NewsController@update');
 route::DELETE('/delete_news/{id}','NewsController@delete');
 
 
+Route::get('/view_audio','AudioController@index');
+Route::get('/add_audio','AudioController@insertform');
+Route::post('/store_audio','AudioController@store');
+Route::DELETE('/delete_audio/{id}','AudioController@delete');
 
-route::get('/add_video',function(){
-	return view('cd-admin.media.add_video');
-});
+Route::get('/view_video','VideoController@index');
+Route::get('/add_video','VideoController@insertform');
+Route::post('/store_video','VideoController@store');
+Route::DELETE('/delete_video/{id}','VideoController@delete');
 
-route::get('/add_audio',function(){
-	return view('cd-admin.media.add_audio');
-});
+Route::get('/view_file','FileController@index');
+Route::get('/add_file','FileController@insertform');
+Route::post('/store_file','FileController@store');
+Route::DELETE('/delete_file/{id}','FileController@delete');
 
-route::get('/add_files',function(){
-	return view('cd-admin.media.add_files');
-});
-
-route::get('/view_audio',function(){
-	return view('cd-admin.media.view_audio');
-});
-
-route::get('/view_files',function(){
-	return view('cd-admin.media.view_files');
-});
-
-route::get('/view_videos',function(){
-	return view('cd-admin.media.view_videos');
-});
 
 route::get('/view_advertisement','AdvertisementController@index');
 route::get('/add_advertisement','AdvertisementController@insertform');
@@ -81,10 +72,8 @@ Route::DELETE('/deleteuserinfo/{id}','UserinfoController@delete');
 
 
 Route::get('/seo','SeoController@index');
-
 Route::get('/addseo','SeoController@insertform');
 Route::post('/storeseo','SeoController@store');
-
 Route::get('/editseo/{id}','SeoController@edit');
 Route::post('/updateseo/{id}','SeoController@update');
 Route::post('/deleteseo/{id}','SeoController@delete');

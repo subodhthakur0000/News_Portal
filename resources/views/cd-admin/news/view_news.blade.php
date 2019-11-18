@@ -49,7 +49,7 @@
                 <td>{{$n->writerusername}}
                 </td>
                 <?php
-                $cat = json_decode($n->category)
+                $cat = json_decode($n->category);
                 ?>
                 <td>@foreach($cat as $c)
                   <button class="btn bg-olive btn-sm" disabled>{{$c}}</button>
@@ -61,9 +61,9 @@
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" role="menu">
-                      <a class="dropdown-item" href="{{url('show_news')}}">View</a>
-                      <a class="dropdown-item" href="{{url('/edit_news')}}">Edit</a>
-                      <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger">Delete</a>
+                      <a class="dropdown-item" href="{{url('show_news/'.$n->id)}}">View</a>
+                      <a class="dropdown-item" href="{{url('/edit_news/'.$n->id)}}">Edit</a>
+                      <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger{{$n->id}}">Delete</a>
                     </div>
                   </div>
                 </td>
@@ -90,9 +90,9 @@
 </section>
 <!-- /.content -->
 
-
+@foreach($news as $n)
 <!-- delete modal -->
-<div class="modal fade" id="modal-danger">
+<div class="modal fade" id="modal-danger{{$n->id}}">
   <div class="modal-dialog">
     <div class="modal-content bg-danger">
       <div class="modal-header">
@@ -105,7 +105,11 @@
         <p>Are you sure you want to delete this news ?</p>
       </div>
       <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-outline-light">Yes</button>
+        <form action="{{url('delete_news/'.$n->id)}}" method="post">
+          @csrf
+          @method('DELETE')
+        <button type="submit" class="btn btn-outline-light">Yes</button>
+        </form>
         <button type="button" class="btn btn-outline-light" data-dismiss="modal">No</button>
       </div>
     </div>
@@ -114,4 +118,5 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+@endforeach
 @endsection
