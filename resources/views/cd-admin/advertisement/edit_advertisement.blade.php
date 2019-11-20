@@ -53,7 +53,7 @@
         <div class="form-group">
           <label >Advertisement Description</label>
           <textarea class="textarea" name="advertisementdescription" placeholder="Place some text here"
-          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$advertisement['advertisementtitle']}}</textarea>
+          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$advertisement['advertisementdescription']}}</textarea>
           <div class="text text-danger">{{ $errors->first('advertisementdescription') }}</div>  
                   <div class="form-group">
                     <label >Upload Advertisement </label>

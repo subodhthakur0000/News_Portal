@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Backend
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=> 'auth'] , function(){
+
+Route::get('/logout','HomeController@logout');
+Route::get('/viewadmin','HomeController@viewadmin');
+Route::get('/addadmin', 'HomeController@addadmin');
+Route::post('/storeadmin', 'HomeController@storeadmin');
+Route::DELETE('/deleteadmin/{id}', 'HomeController@deleteadmin');
+
+
+
 Route::get('/dashboard',function(){
 	return view('cd-admin.dashboard.dashboard');
 });
@@ -52,13 +65,15 @@ route::get('/edit_advertisement/{id}','AdvertisementController@edit');
 route::post('/update_advertisement/{id}','AdvertisementController@update');
 route::DELETE('/delete_advertisement/{id}','AdvertisementController@delete');
 
-Route::get('/comment',function(){
-	return view('cd-admin/comment/viewcomment');
-});
+Route::get('/comment','CommentController@index');
+Route::get('/addcomment','CommentController@insertform');
+Route::post('/storecomment','CommentController@store');
+Route::DELETE('/deletecomment/{id}','CommentController@delete');
 
-Route::get('/reply',function(){
-	return view('cd-admin/reply/viewreply');
-});
+Route::get('/reply','ReplyController@index');
+Route::get('/addreply','ReplyController@insertform');
+Route::post('/storereply','ReplyController@store');
+Route::DELETE('/deletereply/{id}','ReplyController@delete');
 
 Route::get('/writerinfo','WriterinfoController@index');
 Route::get('/addwriterinfo','WriterinfoController@insertform');
@@ -78,12 +93,5 @@ Route::get('/editseo/{id}','SeoController@edit');
 Route::post('/updateseo/{id}','SeoController@update');
 Route::post('/deleteseo/{id}','SeoController@delete');
 
-Route::get('/admin',function(){
-	return view('cd-admin/admin/viewadmin');
+
 });
-
-Route::get('/addadmin',function(){
-	return view('cd-admin/admin/addadmin');
-});
-
-

@@ -151,5 +151,24 @@ trait Validation {
 		  }
 
 
+		   public function commentvalidation()
+			  {
+			    $data = Request()->validate([
+			            'comment'     =>  'required',
+			            'email'    => 'required|email|max:30',
+			        ]);
+			       return ($data);
+			  }
+
+		public function replyvalidation()
+			  {
+			    $data = Request()->validate([
+			            'reply'     =>  'required',
+			            'email'    => 'required|email|max:30',
+			        ]);
+			       return ($data);
+			  }
+
+
 	 
 }

@@ -94,6 +94,7 @@
             </div>
             <div class="modal-body">
                 <p><b>Advertisement Title:</b>&nbsp;{{$a->advertisementtitle}}</p><br>
+                <p><b>Advertisement Description:</b>&nbsp;{!!$a->advertisementdescription!!}</p><br>
                 <p><b>Advertisement:</b>&nbsp;<img src="{{ url('public/uploads/'.$a['image'])}}" class="image1" alt="advertisement"></p><br>
                 <p><b>Advertisement Alt Description:</b>&nbsp;{{$a->alternativeadvertisementdescription}}</p><br>
                 <p><b>Advertisment URL:</b>&nbsp;{{$a->advertisementurl}}</p><br>
