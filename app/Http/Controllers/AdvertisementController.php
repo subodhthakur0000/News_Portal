@@ -49,11 +49,39 @@ public function update($id)
  $a=[];
  $test=$this->advertisementupdatevalidation();
  $a['updated_at'] = Carbon::now('Asia/Kathmandu');
- $a['image'] = $this->imageupload($test['image']);
+ $image = DB::table('advertisements')->where('id',$id)->get()->first();
+ if(!empty($test['image']))
+ {
+
+  unlink('public/uploads/'.$image->image);
+  $a['image'] = $this->imageupload($test['image']);
+}
+else{
+
+  $a['image'] = $image->image;
+
+}
  $merge =  array_merge($test,$a);
  DB::table('advertisements')->where('id',$id)->update($merge);
  return redirect('/view_advertisement')->with('success','Updated Successfully');
 }
+
+public function updatestatus($id)
+      {
+        $a = [];
+        $data = DB::table('advertisements')->where('id',$id)->get()->first();
+        if($data->status=='Active')
+        {
+          $a['status'] = 'Inactive';
+        }
+        else
+        {
+          $a['status'] = 'Active'; 
+        }
+        DB::table('advertisements')->where('id',$id)->update($a);
+        return redirect('/view_advertisement')->with('success','Status Updated Successfully');
+
+       }
 
 public function delete($id)
 {

@@ -46,17 +46,36 @@ route::DELETE('/delete_news/{id}','NewsController@delete');
 Route::get('/view_audio','AudioController@index');
 Route::get('/add_audio','AudioController@insertform');
 Route::post('/store_audio','AudioController@store');
+Route::get('/edit_audio/{id}','AudioController@edit');
+Route::post('/update_audio/{id}','AudioController@update');
+Route::post('/update_audiostatus/{id}','AudioController@updatestatus');
 Route::DELETE('/delete_audio/{id}','AudioController@delete');
-
-Route::get('/view_video','VideoController@index');
-Route::get('/add_video','VideoController@insertform');
-Route::post('/store_video','VideoController@store');
-Route::DELETE('/delete_video/{id}','VideoController@delete');
 
 Route::get('/view_file','FileController@index');
 Route::get('/add_file','FileController@insertform');
 Route::post('/store_file','FileController@store');
+Route::get('/edit_file/{id}','FileController@edit');
+Route::post('/update_file/{id}','FileController@update');
+Route::post('/update_filestatus/{id}','FileController@updatestatus');
 Route::DELETE('/delete_file/{id}','FileController@delete');
+
+Route::get('/view_photo','PhotoController@index');
+Route::get('/add_photo','PhotoController@insertform');
+Route::post('/store_photo','PhotoController@store');
+Route::get('/edit_photo/{id}','PhotoController@edit');
+Route::post('/update_photo/{id}','PhotoController@update');
+Route::post('/update_photostatus/{id}','PhotoController@updatestatus');
+Route::DELETE('/delete_photo/{id}','PhotoController@delete');
+
+Route::get('/view_video','VideoController@index');
+Route::get('/add_video','VideoController@insertform');
+Route::post('/store_video','VideoController@store');
+Route::get('/edit_video/{id}','VideoController@edit');
+Route::post('/update_video/{id}','VideoController@update');
+Route::post('/update_videostatus/{id}','VideoController@updatestatus');
+Route::DELETE('/delete_video/{id}','VideoController@delete');
+
+
 
 
 route::get('/view_advertisement','AdvertisementController@index');
@@ -64,6 +83,7 @@ route::get('/add_advertisement','AdvertisementController@insertform');
 route::post('/store_advertisement','AdvertisementController@store');
 route::get('/edit_advertisement/{id}','AdvertisementController@edit');
 route::post('/update_advertisement/{id}','AdvertisementController@update');
+Route::post('/update_advertisementstatus/{id}','AdvertisementController@updatestatus');
 route::DELETE('/delete_advertisement/{id}','AdvertisementController@delete');
 
 Route::get('/comment','CommentController@index');

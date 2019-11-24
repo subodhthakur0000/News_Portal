@@ -95,6 +95,22 @@
                 </div>
                 </div>
 
+                <div class="form-group">
+          <label >Status</label>
+          <div class="form-group clearfix">
+                      <div class="icheck-success d-inline">
+                        <input type="radio" name="status"  id="radioSuccess1" value="Status">
+                        <label for="radioSuccess1">Active</label>
+                      </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <div class="icheck-success d-inline">
+                        <input type="radio" name="status" id="radioSuccess2" value="Inactive">
+                        <label for="radioSuccess2">Inactive</label>
+                      </div>
+                      <div class="text text-danger">{{ $errors->first('status') }}</div>
+          </div>
+          </div>
+
         <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Advertisement</button> 
       </form>
       <a href="{{url()->previous()}"><button type="button" class="btn btn-default" style="float: right">Back</button></a>

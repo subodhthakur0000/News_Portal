@@ -93,7 +93,23 @@
                 </div>
                 </div>
 
-        <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Advertisement</button> 
+                <div class="form-group">
+          <label >Status</label>
+          <div class="form-group clearfix">
+                      <div class="icheck-success d-inline">
+                        <input type="radio" name="status" value="Active" <?php echo $advertisement->status=='Active'?'checked':''?> id="radioSuccess1">
+                        <label for="radioSuccess1">Active</label>
+                      </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <div class="icheck-success d-inline">
+                        <input type="radio" name="status" value="Inactive" id="radioSuccess2" <?php echo $advertisement->status=='Inactive'?'checked':''?>>
+                        <label for="radioSuccess2">Inactive</label>
+                      </div>
+                      <div class="text text-danger">{{ $errors->first('status') }}</div>
+          </div>
+          </div> 
+
+        <button type="submit" class="btn btn-info" name="insert" style="float: left">Update Advertisement</button> 
       </form>
       <a href="{{url()->previous()}"><button type="button" class="btn btn-default" style="float: right">Back</button></a>
 

@@ -21,6 +21,7 @@ class CreateAdvertisementsTable extends Migration
             $table->mediumtext('image');
             $table->mediumtext('alternativeadvertisementdescription');
             $table->string('section');
+            $table->string('status');
             $table->timestamps();
         });
     }

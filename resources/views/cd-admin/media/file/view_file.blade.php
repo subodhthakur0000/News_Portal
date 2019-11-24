@@ -35,7 +35,7 @@
               <tr>
                 <th>File Title</th>
                 <th>File Summary</th>
-                <th>Views</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -45,7 +45,34 @@
                 <td>{{$f->filetitle}}</td>
                 <td>{{$f->filesummary}}
                 </td>
-                <td>Yet to integrate</td>
+                <td>
+                  <form action="{{url('/update_filestatus/'.$f->id)}}" method="POST">
+                @csrf
+                <div class="btn-group">
+                 @if($f['status']=='Active')
+                 <button type="button" class="btn bg-success">{{$f->status}}</button>
+                 @else
+                 <button type="button" class="btn bg-danger">{{$f->status}}</button>
+                 @endif
+                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                @if($f['status']=='Active')
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-danger" type="submit">Inactive</button>
+                  </li>
+                </div>
+                @else
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-success" type="submit">Active</button>
+                  </li>
+                </div>
+                @endif
+              </div> 
+            </form>
+
+                </td>
                 <td>
                   <div class="btn-group">
                                 <button type="button" class="btn btn-success">Action</button>
@@ -54,6 +81,7 @@
                                   </button>
                                   <div class="dropdown-menu" role="menu">
                                     <a class="dropdown-item" data-toggle="modal" data-target="#modal-lg{{$f->id}}">View</a>
+                                    <a class="dropdown-item btn-danger" href="{{url('edit_file/'.$f->id)}}">Edit</a>
                                     <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger{{$f->id}}">Delete</a>
                                   </div>
                             </div>
@@ -97,10 +125,10 @@
             <div class="modal-body">
                 <p><b>File Title:</b>&nbsp;{{$f->filetitle}}</p><br>
                 <p><b>File :</b>&nbsp;gdgdfg</p><br>
-                <p><b>File Alternative Description:</b>&nbsp;{{$f->altfiledescription}}</p><br>
-                <p><b>File View:</b>&nbsp;Views count will be here</p><br>
+                <p><b>File Url:</b>&nbsp;{{$f->fileurl}}</p><br>
                 <p><b>File Description:</b>&nbsp;{!!$f->filedescription!!}</p><br>
                 <p><b>File Summary:</b>&nbsp;{{$f->filesummary}}</p><br>
+                <p><b>File Status:</b>&nbsp;{{$f->status}}</p><br>
                 <p><b>Seo Title:</b>&nbsp;{{$f->seotitle}}</p><br>
                 <p><b>Seo Keyword:</b>&nbsp;{{$f->seokeyword}}</p><br>
                 <p><b>Seo Description:</b>&nbsp;{!!$f->seodescription!!}</p><br>

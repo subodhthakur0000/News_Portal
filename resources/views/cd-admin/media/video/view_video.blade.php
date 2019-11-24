@@ -34,8 +34,8 @@
             <thead>
               <tr>
                 <th>Video Title</th>
-                <th>Video Link</th>
-                <th>Views</th>
+                <th>Video Summary</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -43,9 +43,35 @@
               @foreach($video as $v)
               <tr>
                 <td>{{$v->videotitle}}</td>
-                <td>{{$v->videourl}}
+                <td>{{$v->videosummary}}
                 </td>
-                <td>Yet to integrate</td>
+                <td>
+                   <form action="{{url('/update_videostatus/'.$v->id)}}" method="POST">
+                @csrf
+                <div class="btn-group">
+                 @if($v['status']=='Active')
+                 <button type="button" class="btn bg-success">{{$v->status}}</button>
+                 @else
+                 <button type="button" class="btn bg-danger">{{$v->status}}</button>
+                 @endif
+                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                @if($v['status']=='Active')
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-danger" type="submit">Inactive</button>
+                  </li>
+                </div>
+                @else
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-success" type="submit">Active</button>
+                  </li>
+                </div>
+                @endif
+              </div> 
+            </form>
+                </td>
                 <td>
                   <div class="btn-group">
                                 <button type="button" class="btn btn-success">Action</button>
@@ -54,6 +80,7 @@
                                   </button>
                                   <div class="dropdown-menu" role="menu">
                                     <a class="dropdown-item" data-toggle="modal" data-target="#modal-lg{{$v->id}}">View</a>
+                                    <a class="dropdown-item btn-danger" href="{{url('/edit_video/'.$v->id)}}">Edit</a>
                                     <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger{{$v->id}}">Delete</a>
                                   </div>
                             </div>
@@ -64,8 +91,8 @@
             <tfoot>
               <tr>
                 <th>Video Title</th>
-                <th>Video Link</th>
-                <th>Views</th>
+                <th>Video Summary</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </tfoot>
@@ -95,9 +122,10 @@
             </div>
             <div class="modal-body">
                 <p><b>Video Title:</b>&nbsp;{{$v->videotitle}}</p><br>
-                <p><b>Video Link:</b>&nbsp;{{$v->videourl}}</p><br>
-                <p><b>Video View:</b>&nbsp;Views count will be here</p><br>
+                <p><b>Video:</b>&nbsp;video download link will be here</p><br>
+                <p><b>Video Url:</b>&nbsp;{{$v->videourl}}</p><br>
                 <p><b>Video Description:</b>&nbsp;{!!$v->videodescription!!}</p><br>
+                <p><b>Video Status:</b>&nbsp;{{$v->status}}</p><br>
                 <p><b>Seo Title:</b>&nbsp;{{$v->seotitle}}</p><br>
                 <p><b>Seo Keyword:</b>&nbsp;{{$v->seokeyword}}</p><br>
                 <p><b>Seo Description:</b>&nbsp;{!!$v->seodescription!!}</p><br>

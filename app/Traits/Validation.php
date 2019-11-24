@@ -58,6 +58,7 @@ trait Validation {
 	            'image'  => 'required',
 	            'alternativeadvertisementdescription' => 'required',
 	            'section' => 'required',
+	            'status'	=> 'required',
 	        ]);
 	       return ($data);
 	  }
@@ -68,9 +69,10 @@ trait Validation {
 	            'advertisementtitle'     =>  'required',
 	            'advertisementurl'			=> 'required',
 	            'advertisementdescription'    => 'required',
-	            'image'  => 'required',
+	            'image'  => '',
 	            'alternativeadvertisementdescription' => 'required',
 	            'section' => 'required',
+	            'status'	=> 'required',
 	        ]);
 	       return ($data);
 	  }
@@ -112,10 +114,28 @@ trait Validation {
 	   public function audiovalidation()
 		  {
 		    $data = Request()->validate([
-		            'audiourl'     =>  'required',
-		            'audiotitle'    => 'required',
+		    		'audiotitle'    => 'required',
+		    		'audio'			=> '',
+		            'audiourl'     =>  '',   
 		            'audiodescription'  => 'required',
 		            'audiosummary'  => 'required',
+		            'status'		=> 'required',
+		            'seotitle' => 'required',
+		            'seokeyword' => 'required',
+		            'seodescription' => 'required',
+		        ]);
+		       return ($data);
+		  }
+
+		  public function audioupdatevalidation()
+		  {
+		    $data = Request()->validate([
+		    		'audiotitle'    => 'required',
+		    		'audio'			=> '',
+		            'audiourl'     =>  '',   
+		            'audiodescription'  => 'required',
+		            'audiosummary'  => 'required',
+		            'status'		=> 'required',
 		            'seotitle' => 'required',
 		            'seokeyword' => 'required',
 		            'seodescription' => 'required',
@@ -126,10 +146,28 @@ trait Validation {
 	public function videovalidation()
 		  {
 		    $data = Request()->validate([
-		            'videourl'     =>  'required',
 		            'videotitle'    => 'required',
+		    		'video'			=> '',
+		            'videourl'     =>  '',   
 		            'videodescription'  => 'required',
 		            'videosummary'  => 'required',
+		            'status'		=> 'required',
+		            'seotitle' => 'required',
+		            'seokeyword' => 'required',
+		            'seodescription' => 'required',
+		        ]);
+		       return ($data);
+		  }	
+
+	public function videoupdatevalidation()
+		  {
+		    $data = Request()->validate([
+		            'videotitle'    => 'required',
+		    		'video'			=> '',
+		            'videourl'     =>  '',   
+		            'videodescription'  => 'required',
+		            'videosummary'  => 'required',
+		            'status'		=> 'required',
 		            'seotitle' => 'required',
 		            'seokeyword' => 'required',
 		            'seodescription' => 'required',
@@ -137,14 +175,65 @@ trait Validation {
 		       return ($data);
 		  }
 
+	public function photovalidation()
+		  {
+		    $data = Request()->validate([
+		            'phototitle'    => 'required',
+		    		'photo'			=> '',
+		            'photourl'     =>  '',   
+		            'photodescription'  => 'required',
+		            'photosummary'  => 'required',
+		            'status'		=> 'required',
+		            'seotitle' => 'required',
+		            'seokeyword' => 'required',
+		            'seodescription' => 'required',
+		        ]);
+		       return ($data);
+		  }
+
+	public function photoupdatevalidation()
+		  {
+		    $data = Request()->validate([
+		            'phototitle'    => 'required',
+		    		'photo'			=> '',
+		            'photourl'     =>  '',   
+		            'photodescription'  => 'required',
+		            'photosummary'  => 'required',
+		            'status'		=> 'required',
+		            'seotitle' => 'required',
+		            'seokeyword' => 'required',
+		            'seodescription' => 'required',
+		        ]);
+		       return ($data);
+		  }
+
+
+
 	public function filevalidation()
 		  {
 		    $data = Request()->validate([
-		            'file'     =>  'required',
-		            'altfiledescription' => 'required',
 		            'filetitle'    => 'required',
+		    		'file'			=> '',
+		            'fileurl'     =>  '',   
 		            'filedescription'  => 'required',
 		            'filesummary'  => 'required',
+		            'status'		=> 'required',
+		            'seotitle' => 'required',
+		            'seokeyword' => 'required',
+		            'seodescription' => 'required',
+		        ]);
+		       return ($data);
+		  }
+
+	public function fileupdatevalidation()
+		  {
+		    $data = Request()->validate([
+		            'filetitle'    => 'required',
+		    		'file'			=> '',
+		            'fileurl'     =>  '',   
+		            'filedescription'  => 'required',
+		            'filesummary'  => 'required',
+		            'status'		=> 'required',
 		            'seotitle' => 'required',
 		            'seokeyword' => 'required',
 		            'seodescription' => 'required',

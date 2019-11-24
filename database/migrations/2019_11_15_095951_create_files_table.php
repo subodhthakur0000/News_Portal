@@ -15,11 +15,12 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('file');
-            $table->string('altfiledescription');
             $table->string('filetitle');
+            $table->string('file')->nullable();
+            $table->string('fileurl')->nullable();
             $table->longtext('filedescription');
             $table->mediumtext('filesummary');
+            $table->string('status');
             $table->string('seotitle');
             $table->string('seokeyword');
             $table->longtext('seodescription');

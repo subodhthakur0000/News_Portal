@@ -15,9 +15,11 @@ class CreateAudioTable extends Migration
     {
         Schema::create('audio', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('audiourl');
             $table->string('audiotitle');
+            $table->string('audio')->nullable();
+            $table->string('audiourl')->nullable();
             $table->longtext('audiodescription');
+            $table->string('status');
             $table->mediumtext('audiosummary');
             $table->string('seotitle');
             $table->string('seokeyword');

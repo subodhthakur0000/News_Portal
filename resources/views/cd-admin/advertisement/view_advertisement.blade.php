@@ -34,6 +34,7 @@
                 <th>Advertisement Title</th>
                 <th>Advertisement URL</th>
                 <th>Section</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -44,6 +45,33 @@
                 <td>{{$a->advertisementurl}}
                 </td>
                 <td>{{$a->section}}</td>
+                <td>
+                  <form action="{{url('/update_advertisementstatus/'.$a->id)}}" method="POST">
+                @csrf
+                <div class="btn-group">
+                 @if($a['status']=='Active')
+                 <button type="button" class="btn bg-success">{{$a->status}}</button>
+                 @else
+                 <button type="button" class="btn bg-danger">{{$a->status}}</button>
+                 @endif
+                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                @if($a['status']=='Active')
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-danger" type="submit">Inactive</button>
+                  </li>
+                </div>
+                @else
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-success" type="submit">Active</button>
+                  </li>
+                </div>
+                @endif
+              </div> 
+            </form>
+                </td>
                 <td>
                   <div class="btn-group">
                                 <button type="button" class="btn btn-success">Action</button>
@@ -65,6 +93,7 @@
                 <th>Advertisement Title</th>
                 <th>Advertisement URL</th>
                 <th>Section</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </tfoot>
@@ -99,6 +128,7 @@
                 <p><b>Advertisement Alt Description:</b>&nbsp;{{$a->alternativeadvertisementdescription}}</p><br>
                 <p><b>Advertisment URL:</b>&nbsp;{{$a->advertisementurl}}</p><br>
                 <p><b>Section:</b>&nbsp;{{$a->section}}</p><br>
+                <p><b>Section:</b>&nbsp;{{$a->status}}</p><br>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

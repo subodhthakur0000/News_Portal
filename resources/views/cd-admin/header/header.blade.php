@@ -136,6 +136,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{url('view_photo')}}" class="nav-link">
+                  <i class="fas fa-image nav-icon"></i>
+                  <p>Photo</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{url('view_video')}}" class="nav-link">
                   <i class="fas fa-video nav-icon"></i>
                   <p>Video</p>

@@ -11,7 +11,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
           <li class="breadcrumb-item active"><a href="{{url('/media')}}">Media</a></li>
-          <li class="breadcrumb-item active"><a href="{{url()->current()}}">Audio</a></li>
+          <li class="breadcrumb-item active"><a href="{{url()->current()}}">Photo</a></li>
 
         </ol>
       </div>
@@ -25,40 +25,40 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-         <h3 class="card-title">Audio Details</h3>
-         <a href="{{url('/add_audio')}}"><button type="button" class="btn bg-gradient-primary float-sm-right">Add Audio</button></a>
+         <h3 class="card-title">Photo Details</h3>
+         <a href="{{url('/add_photo')}}"><button type="button" class="btn bg-gradient-primary float-sm-right">Add Photo</button></a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th>Audio Title</th>
-                <th>Audio Summary</th>
+                <th>Photo Title</th>
+                <th>Photo Summary</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($audio as $a)
+              @foreach($photo as $p)
               <tr>
-                <td>{{$a->audiotitle}}</td>
-                <td>{{$a->audiosummary}}
+                <td>{{$p->phototitle}}</td>
+                <td>{{$p->photosummary}}
                 </td>
                 <td>
-                  <form action="{{url('/update_audiostatus/'.$a->id)}}" method="POST">
+                   <form action="{{url('/update_photostatus/'.$p->id)}}" method="POST">
                 @csrf
                 <div class="btn-group">
-                 @if($a['status']=='Active')
-                 <button type="button" class="btn bg-success">{{$a->status}}</button>
+                 @if($p['status']=='Active')
+                 <button type="button" class="btn bg-success">{{$p->status}}</button>
                  @else
-                 <button type="button" class="btn bg-danger">{{$a->status}}</button>
+                 <button type="button" class="btn bg-danger">{{$p->status}}</button>
                  @endif
                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                   <span class="caret"></span>
                   <span class="sr-only">Toggle Dropdown</span>
                 </button>
-                @if($a['status']=='Active')
+                @if($p['status']=='Active')
                 <div class="dropdown-menu" role="menu" style="min-width: 0px;">
                   <li> <button class="btn bg-danger" type="submit">Inactive</button>
                   </li>
@@ -71,7 +71,6 @@
                 @endif
               </div> 
             </form>
-
                 </td>
                 <td>
                   <div class="btn-group">
@@ -80,9 +79,9 @@
                                   <span class="sr-only">Toggle Dropdown</span>
                                   </button>
                                   <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#modal-lg{{$a->id}}">View</a>
-                                    <a class="dropdown-item btn-danger" href="{{url('edit_audio/'.$a->id)}}">Edit</a>
-                                    <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger{{$a->id}}">Delete</a>
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#modal-lg{{$p->id}}">View</a>
+                                    <a class="dropdown-item btn-danger" href="{{url('/edit_photo/'.$p->id)}}">Edit</a>
+                                    <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger{{$p->id}}">Delete</a>
                                   </div>
                             </div>
                 </td>
@@ -91,9 +90,9 @@
             </tbody>
             <tfoot>
               <tr>
-                <th>Audio Title</th>
-                <th>Audio Link</th>
-                <th>Views</th>
+                <th>Photo Title</th>
+                <th>Photo Summary</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </tfoot>
@@ -109,27 +108,27 @@
 </section>
 <!-- /.content -->
 
-@foreach($audio as $a)
+@foreach($photo as $p)
+
 <!-- view Modal -->
-<div class="modal fade" id="modal-lg{{$a->id}}">
+<div class="modal fade" id="modal-lg{{$p->id}}">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">View Audio</h4>
+              <h4 class="modal-title">View Photo</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                <p><b>Audio Title:</b>&nbsp;{{$a->audiotitle}}</p><br>
-                <p><b>Audio:</b>&nbsp;Audio will be here</p><br>
-                <p><b>Audio Link:</b>&nbsp;{{$a->audiourl}}</p><br>
-                <p><b>Audio View:</b>&nbsp;Views count will be here</p><br>
-                <p><b>Audio Description:</b>&nbsp;{!!$a->audiodescription!!}</p><br>
-                <p><b>Status:</b>&nbsp;{!!$a->status!!}</p><br>
-                <p><b>Seo Title:</b>&nbsp;{{$a->seotitle}}</p><br>
-                <p><b>Seo Keyword:</b>&nbsp;{{$a->seokeyword}}</p><br>
-                <p><b>Seo Description:</b>&nbsp;{!!$a->seodescription!!}</p><br>
+                <p><b>Photo Title:</b>&nbsp;{{$p->phototitle}}</p><br>
+                <p><b>Photo:</b>&nbsp;Photo will be here</p><br>
+                <p><b>Photo Url:</b>&nbsp;{{$p->photourl}}</p><br>
+                <p><b>Photo Description:</b>&nbsp;{!!$p->photodescription!!}</p><br>
+                <p><b>Photo Status:</b>&nbsp;{{$p->status}}</p><br>
+                <p><b>Seo Title:</b>&nbsp;{{$p->seotitle}}</p><br>
+                <p><b>Seo Keyword:</b>&nbsp;{{$p->seokeyword}}</p><br>
+                <p><b>Seo Description:</b>&nbsp;{!!$p->seodescription!!}</p><br>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -143,20 +142,20 @@
 
 
 <!-- delete modal -->
-<div class="modal fade" id="modal-danger{{$a->id}}">
+<div class="modal fade" id="modal-danger{{$p->id}}">
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
             <div class="modal-header">
-              <h4 class="modal-title">Delete Audio</h4>
+              <h4 class="modal-title">Delete Photo</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p>Are you sure you want to delete this audio ?</p>
+              <p>Are you sure you want to delete this Photo ?</p>
             </div>
             <div class="modal-footer justify-content-between">
-              <form action="{{url('delete_audio/'.$a->id)}}" method="post">
+              <form action="{{url('delete_photo/'.$p->id)}}" method="post">
                 @csrf
                 @method('DELETE')
               <button type="submit" class="btn btn-outline-light">Yes</button>
@@ -169,5 +168,6 @@
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
-@endforeach
+
+      @endforeach
 @endsection

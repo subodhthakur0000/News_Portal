@@ -11,7 +11,7 @@
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Home</a></li>
           <li class="breadcrumb-item"><a href="{{url('/media')}}">Media</a></li>
-          <li class="breadcrumb-item active"><a href="{{url()->current()}}">Add Video</a></li>
+          <li class="breadcrumb-item active"><a href="{{url()->current()}}">Add Photo</a></li>
         </ol>
       </div>
     </div>
@@ -25,59 +25,59 @@
 			            <!-- Input addon -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Add Video</h3>
+                <h3 class="card-title">Add Photo</h3>
               </div>
               <div class="card-body">
-            <form action="{{url('store_video')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('store_photo')}}" method="post" enctype="multipart/form-data">
               	@csrf
 
                 <div class="form-group">
-                      <label >Video Title</label>
+                      <label >Photo Title</label>
                       <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Video Title" name="videotitle" value="{{old('videotitle')}}">
-                            <div class="text text-danger">{{ $errors->first('videotitle') }}</div>
+                            <input type="text" class="form-control" placeholder="Enter Photo Title" name="phototitle" value="{{old('phototitle')}}">
+                            <div class="text text-danger">{{ $errors->first('phototitle') }}</div>
                           </div>
 
                   <div class="form-group">
-          <p><b>Upload video</b> (Optional)</p>
+          <p><b>Upload photo</b> (Optional)</p>
           <div class="input-group">
             <div class="input-group-append">
               <span class="input-group-text" id=""><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i></span>
             </div>
-            <input type="file" name="video" value="{{old('video')}}">
-            <div class="text text-danger">{{ $errors->first('video') }}</div>
+            <input type="file" name="photo" value="{{old('photo')}}">
+            <div class="text text-danger">{{ $errors->first('photo') }}</div>
           </div>
         </div>
               
               <div class="form-group">
-                  <label >Video Url</label>
+                  <label >Photo Url</label>
                   <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-link"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Video Url" name="videourl" value="{{old('videourl')}}">
-                            <div class="text text-danger">{{ $errors->first('videourl') }}</div>
+                            <input type="text" class="form-control" placeholder="Enter Photo Url" name="photourl" value="{{old('photourl')}}">
+                            <div class="text text-danger">{{ $errors->first('photourl') }}</div>
                           </div>
                         </div>
                         
                         </div>
                         <div class="form-group">
-                  			<label >Video Descripton </label>
-                           <textarea class="textarea" name="videodescription" placeholder=""
-                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{old('videodescription')}}</textarea>
-                  <div class="text text-danger">{{ $errors->first('videodescription') }}</div>
+                  			<label >Photo Descripton </label>
+                           <textarea class="textarea" name="photodescription" placeholder=""
+                  style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{old('photodescription')}}</textarea>
+                  <div class="text text-danger">{{ $errors->first('photodescription') }}</div>
                         </div>
                         <div class="form-group">
-                  <label >Video Summary</label>
+                  <label >Photo Summary</label>
                   <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
                             </div>
-                            <textarea class="form-control" rows="6" placeholder="Enter Video Summary " name="videosummary">{{old('videosummary')}}</textarea>
-                            <div class="text text-danger">{{ $errors->first('videosummary') }}</div>
+                            <textarea class="form-control" rows="6" placeholder="Enter Photo Summary " name="photosummary">{{old('photosummary')}}</textarea>
+                            <div class="text text-danger">{{ $errors->first('photosummary') }}</div>
                           </div>
                         </div>
                          <div class="form-group">
@@ -123,7 +123,7 @@
                             <textarea class="textarea form-control" placeholder="Enter Seo Description" name="seodescription">{{old('seodescription')}}</textarea>
                             <div class="text text-danger">{{ $errors->first('seodescription') }}</div>
                       </div>              
-                <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Video</button> 
+                <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Photo</button>
             </form>
             <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>
                 
