@@ -58,6 +58,23 @@ public function update($id)
  return redirect('/view_news')->with('success','Updated Successfully');
 }
 
+ public function updatestatus($id)
+      {
+        $a = [];
+        $data = DB::table('news')->where('id',$id)->get()->first();
+        if($data->status=='Active')
+        {
+          $a['status'] = 'Inactive';
+        }
+        else
+        {
+          $a['status'] = 'Active'; 
+        }
+        DB::table('news')->where('id',$id)->update($a);
+        return redirect('/view_news')->with('success','Status Updated Successfully');
+
+       }
+
 public function delete($id)
 {
   DB::table('news')->where('id',$id)->delete();

@@ -18,10 +18,6 @@
 </section>
 
 
-
-
-
-
 <!-- Main content -->
 <section class="content">
   <div class="row">
@@ -38,6 +34,7 @@
                 <th>News Title</th>
                 <th>Writer's User Name</th>
                 <th>Category</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -45,7 +42,7 @@
 
               @foreach($news as $n)
               <tr>
-                <td>{{$n->newstitle}}</td>
+                <td>{!!str_limit(e($n->newstitle),'100')!!}</td>
                 <td>{{$n->writerusername}}
                 </td>
                 <?php
@@ -54,6 +51,34 @@
                 <td>@foreach($cat as $c)
                   <button class="btn bg-olive btn-sm" disabled>{{$c}}</button>
                 @endforeach</td>
+                <td>
+                  <form action="{{url('/update_newsstatus/'.$n->id)}}" method="POST">
+                @csrf
+                <div class="btn-group">
+                 @if($n['status']=='Active')
+                 <button type="button" class="btn bg-success">{{$n->status}}</button>
+                 @else
+                 <button type="button" class="btn bg-danger">{{$n->status}}</button>
+                 @endif
+                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                @if($n['status']=='Active')
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-danger" type="submit">Inactive</button>
+                  </li>
+                </div>
+                @else
+                <div class="dropdown-menu" role="menu" style="min-width: 0px;">
+                  <li> <button class="btn bg-success" type="submit">Active</button>
+                  </li>
+                </div>
+                @endif
+              </div> 
+            </form>
+            
+                </td>
                 <td>
                   <div class="btn-group">
                     <button type="button" class="btn btn-success">Action</button>
@@ -75,6 +100,7 @@
                 <th>News Title</th>
                 <th>Writer's User Name</th>
                 <th>Category</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
             </tfoot>

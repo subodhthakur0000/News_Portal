@@ -23,6 +23,7 @@ class CreateNewsTable extends Migration
             $table->string('seokeyword');
             $table->longtext('seodescription');
             $table->string('category');
+            $table->string('status');
             $table->timestamps();
         });
     }

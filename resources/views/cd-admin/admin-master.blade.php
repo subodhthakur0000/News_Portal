@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="{{asset('node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{asset('node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css')}}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('node_modules/admin-lte/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('node_modules/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('node_modules/admin-lte/dist/css/adminlte.min.css')}}">
   <!-- overlayScrollbars -->
@@ -31,6 +34,16 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <!-- sweetalert -->
 <link rel="stylesheet" href="{{asset('/node_modules/sweetalert2/dist/sweetalert2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('/node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="{{asset('/node_modules/admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css')}}">
+
+  <style type="text/css">
+                  #seo-section{
+                    text-align: center;
+                  }
+                </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -61,6 +74,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- select2 -->
+<script src="{{asset('node_modules/admin-lte/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('node_modules/admin-lte/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
@@ -85,6 +100,8 @@
 </script>
 <!-- overlayScrollbars -->
 <script src="{{asset('node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- bootstrap switch -->
+<script src="{{asset('node_modules/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}} "></script>
 <!-- AdminLTE App -->
 <script src="{{asset('node_modules/admin-lte/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -149,5 +166,19 @@
 
 
 </script>
-</body>
+
+<!-- Select2 -->
+
+
+</body><script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 </html>

@@ -86,6 +86,7 @@ trait Validation {
 	            'seokeyword' => 'required',
 	            'seodescription' => 'required',
 	            'category' =>'',
+	            'status' => '',
 	            
 	        ]);
 	       return ($data);
@@ -102,6 +103,7 @@ trait Validation {
 	            'seokeyword' => 'required',
 	            'seodescription' => 'required',
 	            'category' =>'',
+	            'status' => '',
 	            
 	        ]);
 	       return ($data);

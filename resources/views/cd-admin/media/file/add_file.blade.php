@@ -30,19 +30,17 @@
               <div class="card-body">
             <form action="{{url('/store_file')}}" method="post" enctype="multipart/form-data">
               	@csrf
-              
-                 <div class="form-group">
-                 	<label >Upload File </label>
+                <div class="form-group">
+                    <label >Upload File</label>
                     <div class="input-group">
                       <div class="input-group-append">
                         <span class="input-group-text" id=""><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i></span>
                       </div>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="file">
-                        <div class="text text-danger">{{ $errors->first('file') }}</div>
-                        <label class="custom-file-label" for="exampleInputFile">Upload Admin File</label>
-                      </div>
-                	</div><br>
+                    <input type="file" name="file" value="{{old('file')}}">
+                    <div class="text text-danger">{{ $errors->first('file') }}</div>
+                  </div>
+                  </div>
+              
                 	<div class="form-group">
 		                  <label >Alternative File Description</label>
 		                  <div class="input-group mb-3">

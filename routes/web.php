@@ -39,6 +39,7 @@ route::post('/store_news','NewsController@store');
 route::get('/edit_news/{id}','NewsController@edit');
 route::get('/show_news/{id}','NewsController@show');
 route::post('/update_news/{id}','NewsController@update');
+route::post('/update_newsstatus/{id}','NewsController@updatestatus');
 route::DELETE('/delete_news/{id}','NewsController@delete');
 
 

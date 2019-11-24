@@ -15,14 +15,14 @@ class AudioController extends Controller
     public function index()
   {
     $audio = Audio::orderBy('created_at', 'desc')->get();
-    return view('cd-admin.media.view_audio',compact('audio'));
+    return view('cd-admin.media.audio.view_audio',compact('audio'));
 
 
   }
 
   public function insertform()
   {
-    return view('cd-admin.media.add_audio');
+    return view('cd-admin.media.audio.add_audio');
   }
 
   public function store()

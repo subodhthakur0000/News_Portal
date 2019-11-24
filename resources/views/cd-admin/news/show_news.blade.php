@@ -23,7 +23,9 @@
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Categories: </h3>
+              <h5 class="card-title">Status:</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button class="btn <?php echo $news->status=='Inactive'?'bg-danger':'bg-success'?> btn sm" disabled>{{$news->status}}</button><br><br>
+              <h3 class="card-title">Category:  </h3>&nbsp;&nbsp;
               @foreach($category as $c)
               <button class="btn bg-olive btn-sm" disabled>{{$c}}</button>
               @endforeach
@@ -46,7 +48,9 @@
                   <h5 >{!!$news->news!!}</h5>
 
                 </div>
-                
+                <hr>
+                <p id="seo-section"><b>Seo Section</b></p>
+                <hr>
                 <div>
                   <h5>SEO title</h5>
                   <p>{{$news->seotitle}}</p>
