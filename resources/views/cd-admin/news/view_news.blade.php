@@ -86,9 +86,9 @@
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu" role="menu">
-                      <a class="dropdown-item" href="{{url('show_news/'.$n->id)}}">View</a>
-                      <a class="dropdown-item" href="{{url('/edit_news/'.$n->id)}}">Edit</a>
-                      <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger{{$n->id}}">Delete</a>
+                      <a class="dropdown-item" href="{{url('show_news/'.$n->slug)}}">View</a>
+                      <a class="dropdown-item" href="{{url('/edit_news/'.$n->slug)}}">Edit</a>
+                      <a class="dropdown-item btn-danger" data-toggle="modal" data-target="#modal-danger{{$n->slug}}">Delete</a>
                     </div>
                   </div>
                 </td>
@@ -105,6 +105,7 @@
               </tr>
             </tfoot>
           </table>
+          
         </div>
         <!-- /.card-body -->
       </div>
@@ -118,7 +119,7 @@
 
 @foreach($news as $n)
 <!-- delete modal -->
-<div class="modal fade" id="modal-danger{{$n->id}}">
+<div class="modal fade" id="modal-danger{{$n->slug}}">
   <div class="modal-dialog">
     <div class="modal-content bg-danger">
       <div class="modal-header">

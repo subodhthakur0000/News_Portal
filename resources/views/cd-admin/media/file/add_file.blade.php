@@ -57,7 +57,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
             </div>
-            <input type="text" class="form-control" placeholder="File Url" name="fileurl" value="{{old('fileurl')}}">
+            <input type="url" class="form-control" placeholder="File Url" name="fileurl" value="{{old('fileurl')}}">
             <div class="text text-danger">{{ $errors->first('fileurl') }}</div>
           </div>
         </div>

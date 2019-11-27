@@ -42,8 +42,8 @@
             <tbody>
               @foreach($file as $f)
               <tr>
-                <td>{{$f->filetitle}}</td>
-                <td>{{$f->filesummary}}
+                <td>{!!str_limit($f->filetitle,'100')!!}</td>
+                <td>{!!str_limit($f->filesummary,'100')!!}
                 </td>
                 <td>
                   <form action="{{url('/update_filestatus/'.$f->id)}}" method="POST">

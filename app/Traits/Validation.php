@@ -12,7 +12,7 @@ trait Validation {
 	            'pagetitle'     =>  'required|unique:seos,pagetitle',
 	            'seotitle'    => 'required|max:60',
 	            'seokeyword'  => 'required|max:60',
-	            'seodescription'  => 'required',
+	            'seodescription'  => 'required|max:5000',
 	        ]);
 	       return ($data);
 	  }
@@ -23,7 +23,7 @@ trait Validation {
 	            'pagetitle'     =>  'required',
 	            'seotitle'    => 'required|max:60',
 	            'seokeyword'  => 'required|max:60',
-	            'seodescription'  => 'required',
+	            'seodescription'  => 'required|max:5000',
 	        ]);
 	       return ($data);
 	  }
@@ -33,7 +33,7 @@ trait Validation {
 	    $data = Request()->validate([
 	            'name'     =>  'required|max:50',
 	            'email'    => 'required|email|max:30',
-	            'phone'  => 'required|max:60',
+	            'phone'  => 'required|max:15',
 	        ]);
 	       return ($data);
 	  }
@@ -44,7 +44,7 @@ trait Validation {
 	            'username'     =>  'required|unique:writerinfos,username|max:50',
 	            'name'			=> 'required|max:50',
 	            'email'    => 'required|email|max:30',
-	            'phone'  => 'required|max:60',
+	            'phone'  => 'required|max:15',
 	        ]);
 	       return ($data);
 	  }
@@ -52,11 +52,12 @@ trait Validation {
 	  public function advertisementvalidation()
 	  {
 	    $data = Request()->validate([
-	            'advertisementtitle'     =>  'required',
+	            'advertisementtitle'     =>  'required|unique:advertisements,advertisementtitle|max:1000',
 	            'advertisementurl'			=> 'required',
-	            'advertisementdescription'    => 'required',
-	            'image'  => 'required',
-	            'alternativeadvertisementdescription' => 'required',
+	            'advertisementdescription'    => 'required
+	            ',
+	            'image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+	            'alternativeadvertisementdescription' => 'required|max:1000',
 	            'section' => 'required',
 	            'status'	=> 'required',
 	        ]);
@@ -66,11 +67,12 @@ trait Validation {
 	  public function advertisementupdatevalidation()
 	  {
 	    $data = Request()->validate([
-	            'advertisementtitle'     =>  'required',
+	            'advertisementtitle'     =>  'required|max:1000',
 	            'advertisementurl'			=> 'required',
-	            'advertisementdescription'    => 'required',
-	            'image'  => '',
-	            'alternativeadvertisementdescription' => 'required',
+	            'advertisementdescription'    => 'required
+	            ',
+	            'image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+	            'alternativeadvertisementdescription' => 'required|max:1000',
 	            'section' => 'required',
 	            'status'	=> 'required',
 	        ]);
@@ -80,15 +82,15 @@ trait Validation {
 	  public function newsvalidation()
 	  {
 	    $data = Request()->validate([
-	            'newstitle'     =>  'required',
+	            'newstitle'     =>  'required|unique:news,newstitle',
 	            'writerusername'			=> 'required',
 	            'news'    => 'required',
 	            'newssummary'  => 'required',
-	            'seotitle' => 'required',
-	            'seokeyword' => 'required',
-	            'seodescription' => 'required',
-	            'category' =>'',
-	            'status' => '',
+	            'seotitle' => 'required|max:60',
+	            'seokeyword' => 'required|max:60',
+	            'seodescription' => 'required | max:5000',
+	            'category' =>'required',
+	            'status' => 'required',
 	            
 	        ]);
 	       return ($data);
@@ -98,14 +100,14 @@ trait Validation {
 	  {
 	    $data = Request()->validate([
 	            'newstitle'     =>  'required',
-	            'writerusername'			=> 'required',
+	            'writerusername' => 'required',
 	            'news'    => 'required',
 	            'newssummary'  => 'required',
-	            'seotitle' => 'required',
-	            'seokeyword' => 'required',
-	            'seodescription' => 'required',
-	            'category' =>'',
-	            'status' => '',
+	            'seotitle' => 'required|max:60',
+	            'seokeyword' => 'required|max:60',
+	            'seodescription' => 'required|max:5000',
+	            'category' =>'required',
+	            'status' => 'required',
 	            
 	        ]);
 	       return ($data);
@@ -115,14 +117,14 @@ trait Validation {
 		  {
 		    $data = Request()->validate([
 		    		'audiotitle'    => 'required',
-		    		'audio'			=> '',
+		    		'audio'			=> 'mimes:3gp,aiff,alac,m4a,mp3',
 		            'audiourl'     =>  '',   
 		            'audiodescription'  => 'required',
-		            'audiosummary'  => 'required',
+		            'audiosummary'  => 'required|max:300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required|max:5000',
 		        ]);
 		       return ($data);
 		  }
@@ -131,14 +133,14 @@ trait Validation {
 		  {
 		    $data = Request()->validate([
 		    		'audiotitle'    => 'required',
-		    		'audio'			=> '',
+		    		'audio'			=> 'mimes:3gp,aiff,alac,m4a,mp3',
 		            'audiourl'     =>  '',   
 		            'audiodescription'  => 'required',
-		            'audiosummary'  => 'required',
+		            'audiosummary'  => 'required|max:300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required|max:5000',
 		        ]);
 		       return ($data);
 		  }
@@ -146,15 +148,15 @@ trait Validation {
 	public function videovalidation()
 		  {
 		    $data = Request()->validate([
-		            'videotitle'    => 'required',
-		    		'video'			=> '',
+		            'videotitle'    => 'required|max:300',
+		    		'video'			=> 'mimes:mp4,mov,ogg',
 		            'videourl'     =>  '',   
-		            'videodescription'  => 'required',
-		            'videosummary'  => 'required',
+		            'videodescription'  => 'required|max:5000',
+		            'videosummary'  => 'required|max:300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required|max:300',
 		        ]);
 		       return ($data);
 		  }	
@@ -162,15 +164,15 @@ trait Validation {
 	public function videoupdatevalidation()
 		  {
 		    $data = Request()->validate([
-		            'videotitle'    => 'required',
-		    		'video'			=> '',
+		            'videotitle'    => 'required|max:300',
+		    		'video'			=> 'mimes:mp4,mov,ogg',
 		            'videourl'     =>  '',   
-		            'videodescription'  => 'required',
-		            'videosummary'  => 'required',
+		            'videodescription'  => 'required|max:5000',
+		            'videosummary'  => 'required|max:300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required|max:300',
 		        ]);
 		       return ($data);
 		  }
@@ -178,15 +180,15 @@ trait Validation {
 	public function photovalidation()
 		  {
 		    $data = Request()->validate([
-		            'phototitle'    => 'required',
-		    		'photo'			=> '',
+		            'phototitle'    => 'required|max:300',
+		    		'photo'			=> 'image|mimes:jpeg,png,jpg,gif,svg',
 		            'photourl'     =>  '',   
-		            'photodescription'  => 'required',
-		            'photosummary'  => 'required',
+		            'photodescription'  => 'required|max:500',
+		            'photosummary'  => 'required|max:300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required|max:5000',
 		        ]);
 		       return ($data);
 		  }
@@ -194,15 +196,15 @@ trait Validation {
 	public function photoupdatevalidation()
 		  {
 		    $data = Request()->validate([
-		            'phototitle'    => 'required',
-		    		'photo'			=> '',
+		            'phototitle'    => 'required|max:300',
+		    		'photo'			=> 'image|mimes:jpeg,png,jpg,gif,svg',
 		            'photourl'     =>  '',   
-		            'photodescription'  => 'required',
-		            'photosummary'  => 'required',
+		            'photodescription'  => 'required|max:500',
+		            'photosummary'  => 'required|max:300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required|max:5000',
 		        ]);
 		       return ($data);
 		  }
@@ -212,15 +214,15 @@ trait Validation {
 	public function filevalidation()
 		  {
 		    $data = Request()->validate([
-		            'filetitle'    => 'required',
-		    		'file'			=> '',
-		            'fileurl'     =>  '',   
-		            'filedescription'  => 'required',
-		            'filesummary'  => 'required',
+		            'filetitle'    => 'required|unique:files,filetitle|max:500',
+		    		'file'			=> 'mimes: pdf, doc,docx,xls,xlsm,ppt,pptx,xlsx',
+		            'fileurl'     =>  'required',   
+		            'filedescription'  => 'required | max:5000',
+		            'filesummary'  => 'required | max: 300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required | max: 5000',
 		        ]);
 		       return ($data);
 		  }
@@ -228,15 +230,15 @@ trait Validation {
 	public function fileupdatevalidation()
 		  {
 		    $data = Request()->validate([
-		            'filetitle'    => 'required',
-		    		'file'			=> '',
-		            'fileurl'     =>  '',   
-		            'filedescription'  => 'required',
-		            'filesummary'  => 'required',
+		            'filetitle'    => 'required|max:500',
+		    		'file'			=> 'mimes: pdf, doc,docx,xls,xlsm,ppt,pptx,xlsx',
+		            'fileurl'     =>  'required',   
+		            'filedescription'  => 'required | max:5000',
+		            'filesummary'  => 'required | max: 300',
 		            'status'		=> 'required',
-		            'seotitle' => 'required',
-		            'seokeyword' => 'required',
-		            'seodescription' => 'required',
+		            'seotitle' => 'required|max:60',
+		            'seokeyword' => 'required|max:60',
+		            'seodescription' => 'required | max: 5000',
 		        ]);
 		       return ($data);
 		  }
@@ -245,8 +247,9 @@ trait Validation {
 		   public function commentvalidation()
 			  {
 			    $data = Request()->validate([
-			            'comment'     =>  'required',
+			            'comment'     =>  'required|max:5000',
 			            'email'    => 'required|email|max:30',
+			            'status'   =>  'required',
 			        ]);
 			       return ($data);
 			  }
@@ -254,8 +257,9 @@ trait Validation {
 		public function replyvalidation()
 			  {
 			    $data = Request()->validate([
-			            'reply'     =>  'required',
+			            'reply'     =>  'required|max:5000',
 			            'email'    => 'required|email|max:30',
+			            'status'   =>  'required',
 			        ]);
 			       return ($data);
 			  }

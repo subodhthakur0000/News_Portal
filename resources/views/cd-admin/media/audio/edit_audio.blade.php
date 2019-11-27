@@ -57,7 +57,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-link"></i></span>
           </div>
-          <input type="text" class="form-control" placeholder="Enter Audio Url" name="audiourl" value="{{$audio->audiourl}}">
+          <input type="url" class="form-control" placeholder="Enter Audio Url" name="audiourl" value="{{$audio->audiourl}}">
           <div class="text text-danger">{{ $errors->first('audiourl') }}</div>
         </div>
       </div>

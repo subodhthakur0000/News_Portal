@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('comment');
             $table->string('email');
+            $table->string('status');
             $table->timestamps();
         });
     }

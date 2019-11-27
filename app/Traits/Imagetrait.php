@@ -16,4 +16,18 @@ trait Imagetrait {
 		}    
 	}
 
+	public function multipleupload($name)
+    {
+        $images=array();
+            if($files=$name){
+                foreach($files as $file){
+                    $name=$file->getClientOriginalName();
+                    $file->move('public/uploads/multipleupload',$name);
+                    $images[]=$name;
+                }
+                return $images;
+            }
+    }
+
+
 }

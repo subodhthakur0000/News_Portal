@@ -33,6 +33,24 @@ class ReplyController extends Controller
    return redirect('/reply')->with('success','Inserted Successfully');
  }
 
+ public function updatestatus($id)
+      {
+        $a = [];
+        $data = DB::table('replies')->where('id',$id)->get()->first();
+        if($data->status=='Active')
+        {
+          $a['status'] = 'Inactive';
+        }
+        else
+        {
+          $a['status'] = 'Active'; 
+        }
+        DB::table('replies')->where('id',$id)->update($a);
+        return redirect('/reply')->with('success','Status Updated Successfully');
+
+       }
+
+
 
 
 public function delete($id)

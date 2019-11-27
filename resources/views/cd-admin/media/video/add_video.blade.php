@@ -58,7 +58,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-link"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Video Url" name="videourl" value="{{old('videourl')}}">
+                            <input type="url" class="form-control" placeholder="Enter Video Url" name="videourl" value="{{old('videourl')}}">
                             <div class="text text-danger">{{ $errors->first('videourl') }}</div>
                           </div>
                         </div>

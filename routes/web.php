@@ -31,16 +31,17 @@ Route::DELETE('/deleteadmin/{id}', 'HomeController@deleteadmin');
 Route::get('/dashboard',function(){
 	return view('cd-admin.dashboard.dashboard');
 });
+Route::any('/search','DashboardController@search');
 
 
 route::get('/view_news','NewsController@index');
 route::get('/add_news','NewsController@insertform');
 route::post('/store_news','NewsController@store');
-route::get('/edit_news/{id}','NewsController@edit');
-route::get('/show_news/{id}','NewsController@show');
-route::post('/update_news/{id}','NewsController@update');
-route::post('/update_newsstatus/{id}','NewsController@updatestatus');
-route::DELETE('/delete_news/{id}','NewsController@delete');
+route::get('/edit_news/{slug}','NewsController@edit');
+route::get('/show_news/{slug}','NewsController@show');
+route::post('/update_news/{slug}','NewsController@update');
+route::post('/update_newsstatus/{slug}','NewsController@updatestatus');
+route::DELETE('/delete_news/{slug}','NewsController@delete');
 
 
 Route::get('/view_audio','AudioController@index');
@@ -89,11 +90,13 @@ route::DELETE('/delete_advertisement/{id}','AdvertisementController@delete');
 Route::get('/comment','CommentController@index');
 Route::get('/addcomment','CommentController@insertform');
 Route::post('/storecomment','CommentController@store');
+Route::post('/update_commentstatus/{id}','CommentController@updatestatus');
 Route::DELETE('/deletecomment/{id}','CommentController@delete');
 
 Route::get('/reply','ReplyController@index');
 Route::get('/addreply','ReplyController@insertform');
 Route::post('/storereply','ReplyController@store');
+Route::post('/update_replystatus/{id}','ReplyController@updatestatus');
 Route::DELETE('/deletereply/{id}','ReplyController@delete');
 
 Route::get('/writerinfo','WriterinfoController@index');

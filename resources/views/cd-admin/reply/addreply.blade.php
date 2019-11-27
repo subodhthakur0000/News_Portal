@@ -49,9 +49,24 @@
                   <div class="text text-danger">{{ $errors->first('email') }}</div>
                 </div>
                 </div>
+                <div class="form-group">
+                    <label >Status</label>
+                    <div class="form-group clearfix">
+                                <div class="icheck-success d-inline">
+                                  <input type="radio" name="status"  id="radioSuccess1" value="Active">
+                                  <label for="radioSuccess1">Active</label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="icheck-success d-inline">
+                                  <input type="radio" name="status" id="radioSuccess2" value="Inactive">
+                                  <label for="radioSuccess2">Inactive</label>
+                                </div>
+                                <div class="text text-danger">{{ $errors->first('status') }}</div>
+                    </div>
+                    </div>
                 <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Reply</button> 
             </form>
-            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>
+            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Cancel</button></a>
 
               </div>
               <!-- /.card-body -->

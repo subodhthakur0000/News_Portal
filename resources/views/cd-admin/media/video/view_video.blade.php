@@ -42,8 +42,8 @@
             <tbody>
               @foreach($video as $v)
               <tr>
-                <td>{{$v->videotitle}}</td>
-                <td>{{$v->videosummary}}
+                <td>{!!str_limit($v->videotitle,'100')!!}</td>
+                <td>{!!str_limit($v->videosummary,'100')!!}
                 </td>
                 <td>
                    <form action="{{url('/update_videostatus/'.$v->id)}}" method="POST">

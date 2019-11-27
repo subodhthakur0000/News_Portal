@@ -74,7 +74,7 @@
                 </div>              
                 <button type="submit" class="btn btn-info" name="insert" style="float: left">Add Seo</button> 
             </form>
-            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>
+            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Cancel</button></a>
                 
 
               </div>

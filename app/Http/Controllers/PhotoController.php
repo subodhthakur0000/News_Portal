@@ -31,9 +31,11 @@ class PhotoController extends Controller
   public function store()
   {
    $a=[];
+   $b = [];
    $test=$this->photovalidation();
    $a['created_at'] = Carbon::now('Asia/Kathmandu');
-   $a['photo'] = $this->imageupload($test['photo']);
+   $b['photo'] = $this->multipleupload($test['photo']);
+   $a['photo'] = json_encode($b['photo']);
    $merge = array_merge($test,$a);
    DB::table('photos')->insert($merge);
    return redirect('/view_photo')->with('success','Inserted Successfully');
@@ -48,14 +50,21 @@ class PhotoController extends Controller
 public function update($id)
 {
  $a=[];
+ $b = [];
  $test=$this->photoupdatevalidation();
  $a['updated_at'] = Carbon::now('Asia/Kathmandu');
  $photo = DB::table('photos')->where('id',$id)->get()->first();
  if(!empty($test['photo']))
  {
-
-  unlink('public/uploads/'.$photo->file);
-  $a['photo'] = $this->imageupload($test['photo']);
+  $mulfile = json_decode($photo->photo);
+  foreach($mulfile as $m){
+  if(file_exists('public/uploads/multipleupload/'.$m))
+  {
+    unlink('public/uploads/multipleupload/'.$m);
+  }
+ }
+  $b['photo'] = $this->multipleupload($test['photo']);
+  $a['photo'] = json_encode($b['photo']);
 }
 else{
 
@@ -86,10 +95,13 @@ public function updatestatus($id)
 public function delete($id)
 {
   $fileunlink = DB::table('photos')->where('id',$id)->get()->first();
-  if(file_exists('public/uploads/'.$fileunlink->photo))
+  $mulfile = json_decode($fileunlink->photo);
+  foreach($mulfile as $m){
+  if(file_exists('public/uploads/multipleupload/'.$m))
   {
-    unlink('public/uploads/'.$fileunlink->photo);
+    unlink('public/uploads/multipleupload/'.$m);
   }
+ }
   DB::table('photos')->where('id',$id)->delete();
   return redirect('/view_photo')->with('error','Deleted Successfully');
 }

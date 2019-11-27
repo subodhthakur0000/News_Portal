@@ -33,6 +33,23 @@ class CommentController extends Controller
    return redirect('/comment')->with('success','Inserted Successfully');
  }
 
+ public function updatestatus($id)
+      {
+        $a = [];
+        $data = DB::table('comments')->where('id',$id)->get()->first();
+        if($data->status=='Active')
+        {
+          $a['status'] = 'Inactive';
+        }
+        else
+        {
+          $a['status'] = 'Active'; 
+        }
+        DB::table('comments')->where('id',$id)->update($a);
+        return redirect('/comment')->with('success','Status Updated Successfully');
+
+       }
+
 
 
 public function delete($id)

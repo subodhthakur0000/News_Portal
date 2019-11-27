@@ -61,6 +61,7 @@
 						</tbody>
 						<tfoot>
 							<tr>
+								<th>Username</th>
 								<th>Name</th>
 								<th>Email</th>
 								<th>Phone Number</th>

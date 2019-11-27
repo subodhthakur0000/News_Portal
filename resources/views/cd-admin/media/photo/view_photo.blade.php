@@ -42,8 +42,8 @@
             <tbody>
               @foreach($photo as $p)
               <tr>
-                <td>{{$p->phototitle}}</td>
-                <td>{{$p->photosummary}}
+                <td>{!!str_limit($p->phototitle,'100')!!}</td>
+                <td>{!!str_limit($p->photosummary,'100')!!}
                 </td>
                 <td>
                    <form action="{{url('/update_photostatus/'.$p->id)}}" method="POST">
@@ -122,7 +122,14 @@
             </div>
             <div class="modal-body">
                 <p><b>Photo Title:</b>&nbsp;{{$p->phototitle}}</p><br>
-                <p><b>Photo:</b>&nbsp;Photo will be here</p><br>
+                <p><b>Photo:</b>&nbsp;
+                  <?php
+                  $mulphoto = json_decode($p['photo']);
+                  ?>
+                  @foreach($mulphoto as $pm)
+                  <img src="{{ url('public/uploads/multipleupload/'.$pm)}}" class="image1" alt="">
+                  @endforeach
+                </p><br>
                 <p><b>Photo Url:</b>&nbsp;{{$p->photourl}}</p><br>
                 <p><b>Photo Description:</b>&nbsp;{!!$p->photodescription!!}</p><br>
                 <p><b>Photo Status:</b>&nbsp;{{$p->status}}</p><br>
@@ -170,4 +177,11 @@
       <!-- /.modal -->
 
       @endforeach
+
+      <style type="text/css">
+        .image1{
+          height: 200px;
+        width: 200px;
+        }
+      </style>
 @endsection

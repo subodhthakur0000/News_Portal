@@ -41,8 +41,8 @@
             <tbody>
               @foreach($advertisement as $a)
               <tr>
-                <td>{{$a->advertisementtitle}}</td>
-                <td>{{$a->advertisementurl}}
+                <td>{!!str_limit($a->advertisementtitle,'100')!!}</td>
+                <td>{!!str_limit($a->advertisementurl,'100')!!}
                 </td>
                 <td>{{$a->section}}</td>
                 <td>

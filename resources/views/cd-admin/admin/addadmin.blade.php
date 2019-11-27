@@ -77,7 +77,7 @@
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="image" value="{{old('image')}}">
                         <div class="text text-danger">{{ $errors->first('image') }}</div>
-          </div>
+                      
                         <label class="custom-file-label" for="exampleInputFile">Upload Admin Image</label>
                       </div>
                 </div>
@@ -101,10 +101,10 @@
             <input type="radio" name="role" value="Admin"> Admin
           </div>
 
-            <button type="submit" class="btn btn-info">Add Admin</button>
-              
+
+            <button type="submit" class="btn btn-info" style="float: left">Add Admin</button> 
             </form>
-            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Back</button></a>
+            <a href="{{url()->previous()}}"><button type="submit" class="btn btn-default" style="float: right">Cancel</button></a>
 
               
               

@@ -17,6 +17,7 @@ class CreateRepliesTable extends Migration
             $table->bigIncrements('id');
             $table->string('reply');
             $table->string('email');
+            $table->string('status');
             $table->timestamps();
         });
     }

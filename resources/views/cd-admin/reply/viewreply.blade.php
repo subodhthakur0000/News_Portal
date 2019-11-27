@@ -39,9 +39,40 @@
 						<tbody>
 							@foreach($reply as $r)
 							<tr>
-								<td>{{$r->reply}}</td>
+								<td>
+									{!!str_limit($r->reply,'100')!!}
+
+								</td>
 								<td>{{$r->email}}</td>
-								<td>Win 95+</td>
+								<td>
+
+									<form action="{{url('/update_replystatus/'.$r->id)}}" method="POST">
+										@csrf
+										<div class="btn-group">
+											@if($r['status']=='Active')
+											<button type="button" class="btn bg-success">{{$r->status}}</button>
+											@else
+											<button type="button" class="btn bg-danger">{{$r->status}}</button>
+											@endif
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+												<span class="caret"></span>
+												<span class="sr-only">Toggle Dropdown</span>
+											</button>
+											@if($r['status']=='Active')
+											<div class="dropdown-menu" role="menu" style="min-width: 0px;">
+												<li> <button class="btn bg-danger" type="submit">Inactive</button>
+												</li>
+											</div>
+											@else
+											<div class="dropdown-menu" role="menu" style="min-width: 0px;">
+												<li> <button class="btn bg-success" type="submit">Active</button>
+												</li>
+											</div>
+											@endif
+										</div> 
+									</form>
+
+								</td>
 								<td>
 									<div class="btn-group">
 						                    <button type="button" class="btn btn-success">Action</button>
@@ -90,7 +121,7 @@
               </button>
             </div>
             <div class="modal-body">
-              	<p><b>Status:</b>&nbsp;Active</p><br>
+              	<p><b>Status:</b>&nbsp;{{$r->status}}</p><br>
               	<p><b>Comment:</b>&nbsp;comment on post</p><br>
               	<p><b>Reply:</b>&nbsp;{{$r->reply}}</p><br>
               	<p><b>Name:</b>&nbsp;Name of user</p><br>

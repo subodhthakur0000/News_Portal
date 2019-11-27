@@ -48,7 +48,9 @@
             </div>
            <select class="form-control select2" name="writerusername" value="{{old('writerusername')}}">
                     <option selected="" disabled="">Writer's User Name</option>
-                    <option value="Alabama">Alabama</option>
+                    @foreach($writerinfo as $username)
+                    <option value="{{$username['username']}}">{{$username['username']}}</option>
+                    @endforeach
                   </select>
             <div class="text text-danger">{{ $errors->first('writerusername') }}</div>
           </div>

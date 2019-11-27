@@ -28,7 +28,7 @@
         <h3 class="card-title">Edit News</h3>
       </div>
       <div class="card-body">
-        <form action="{{url('update_news/'.$news['id'])}}" method="post">
+        <form action="{{url('update_news/'.$news['slug'])}}" method="post">
          @csrf
 
          <div class="form-group">
@@ -48,8 +48,10 @@
               <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
             </div>
             <select class="form-control select2" name="writerusername" value="{{$news['writerusername']}}">
-              <option disabled="">Writer's User Name</option>
-              <option value="Alabama" <?php echo $news->writerusername=='Alabama'?'selected':''?>>Alabama</option>
+              <option disabled value="{{$news->writerusername}}" selected>{{$news->writerusername}}</option>
+               @foreach($writerinfo as $username)
+                    <option value="{{$username['username']}}">{{$username['username']}}</option>
+                    @endforeach
             </select>
             <div class="text text-danger">{{ $errors->first('writerusername') }}</div>
           </div>

@@ -42,8 +42,8 @@
             <tbody>
               @foreach($audio as $a)
               <tr>
-                <td>{{$a->audiotitle}}</td>
-                <td>{{$a->audiosummary}}
+                <td>{!!str_limit($a->audiotitle,'100')!!}</td>
+                <td>{!!str_limit($a->audiosummary,'100')!!}
                 </td>
                 <td>
                   <form action="{{url('/update_audiostatus/'.$a->id)}}" method="POST">

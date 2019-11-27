@@ -24,6 +24,7 @@ class CreateNewsTable extends Migration
             $table->longtext('seodescription');
             $table->string('category');
             $table->string('status');
+            $table->longtext('slug');
             $table->timestamps();
         });
     }

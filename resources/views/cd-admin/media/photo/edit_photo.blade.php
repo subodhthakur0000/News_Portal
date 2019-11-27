@@ -47,7 +47,7 @@
             <div class="input-group-append">
               <span class="input-group-text" id=""><i class="fas fa-cloud-upload-alt" aria-hidden="true"></i></span>
             </div>
-            <input type="file" name="photo" value="{{$photo['photo']}}">
+            <input type="file" name="photo[]" value="{{$photo['photo']}}" multiple>
             <div class="text text-danger">{{ $errors->first('photo') }}</div>
           </div>
         </div>
@@ -58,7 +58,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-link"></i></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter Photo Url" name="photourl" value="{{$photo['photourl']}}">
+                            <input type="url" class="form-control" placeholder="Enter Photo Url" name="photourl" value="{{$photo['photourl']}}">
                             <div class="text text-danger">{{ $errors->first('photourl') }}</div>
                           </div>
                         </div>
